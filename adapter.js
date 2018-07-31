@@ -7,7 +7,20 @@ let userAdapter = generateAdapter(userAPI)
 function generateAdapter(apiURL){
     return {
         index: function(){
-            fetch(apiURL).then(res => res.json()).then(console.log)
+            return fetch(apiURL).then(res => res.json()).then(console.log)
+        },
+
+        create: function(name){
+            let postConfig = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: `${name}`
+                })
+            }
+            return fetch(apiURL, postConfig).then(res => res.json()).then(console.log)
         }
     }
 }
