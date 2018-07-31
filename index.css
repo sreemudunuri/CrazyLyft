@@ -3,6 +3,14 @@
     margin: 0; 
    }
 
+/* body{
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ef/NYC_Taxi_Ford_Crown_Victoria.jpg');
+}
+
+h1, h2, h3, p {
+    color: #eee; 
+} */
+
 #sidebar{
     float: left;
     margin-left: .75%; 
@@ -14,7 +22,7 @@
     display: block; 
     margin: 0 auto;
     /* padding-left: 15px; */
-    margin-left: 10%; 
+    margin-left: 5%; 
 }
 
 
