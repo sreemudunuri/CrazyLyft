@@ -1,0 +1,21 @@
+* { 
+    padding-top: 10px; 
+    margin: 0; 
+   }
+
+#sidebar{
+    float: left;
+    margin-left: .75%; 
+}
+
+#myCanvas{
+    float: left;
+    background: #eee; 
+    display: block; 
+    margin: 0 auto;
+    /* padding-left: 15px; */
+    margin-left: 10%; 
+}
+
+
+    
