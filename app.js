@@ -7,13 +7,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         event.preventDefault()
         console.log(event.currentTarget[0].value)
 
-        event.currentTarget[0].value = ""
+        
 
-        userAdapter.showUser(1).then(res => {
-            renderUserName(res)
-        }) 
+        userAdapter.createUser(event.currentTarget[0].value)
+        .then(res => {renderUserName(res)})
+        .then(setInterval(run, 10))
 
-        // setInterval(run, 10)
     })
 
 
