@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+
 
     var canvas = document.getElementById("myCanvas");
     var ctx = canvas.getContext("2d");
@@ -190,8 +190,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     }
 
-    setInterval(run, 10)
-})
+
 
 
 

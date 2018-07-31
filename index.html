@@ -8,58 +8,61 @@
         <head>
             <link rel="stylesheet" href="index.css">
             <script src="adapter.js"></script>
-            <script type="text/javascript" src="run.js"></script>
             <script type="text/javascript" src="map.js"></script>
             <script type="text/javascript" src="car.js"></script>
-        <script type="text/javascript" src="passenger.js"></script>
-    </head>
-
-</head>
-<body>
-
-    <nav class="navbar navbar-light" style="background-color: #ffc107;">
-        <span class="navbar-brand mb-0 h1">IT'S TAXI TIME</span>
-    </nav>
-    <br>
-
-    <div id = "sidebar">
-        <form id = "username">
-            <div class = "form-group">
-                <label for="name"><h2>User Name:</h2></label><br>
-                <input type="text" name = "name" placeholder = "Enter Your Name!"><br>
-            </div>
-                <input type="submit">
-            </form>
-            <br>
-
+            <script type="text/javascript" src="passenger.js"></script>
+            
+        </head>
         
-       <div class="card bg-warning text-dark">
-            <div class="card-body" id = 'timer-card'>
-                <h2 class="card-title">Timer</h2>
-                <p><strong> 45 </strong> </p>
-            </div>
-        </div>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-light" style="background-color: #ffc107;">
+            <span class="navbar-brand mb-0 h1">IT'S TAXI TIME</span>
+        </nav>
         <br>
+        <div id = "sidebar">
+            <div id = 'username-box'> 
 
-        <div class="card bg-dark text-white">
-            <div class="card-body" id = 'score-card'>
-                <h2 class="card-title">Score</h2>
-                <p>
-                    <em> 0 </em>
-                </p>
+                <form id = "username-form">
+                    <div class = "form-group">
+                        <label for="name"><h2>User Name:</h2></label><br>
+                        <input type="text" name = "name" placeholder = "Enter Your Name!"><br>
+                    </div>
+                    <input type="submit">
+                </form>
+                <br>
+
             </div>
+            
+            
+            <div class="card bg-warning text-dark">
+                <div class="card-body" id = 'timer-card'>
+                    <h2 class="card-title">Timer</h2>
+                    <p><strong> 45 </strong> </p>
+                </div>
+            </div>
+            <br>
+            
+            <div class="card bg-dark text-white">
+                <div class="card-body" id = 'score-card'>
+                    <h2 class="card-title">Score</h2>
+                    <p>
+                        <em> 0 </em>
+                    </p>
+                </div>
+            </div>
+            
+
+            
         </div>
-
-
-
-    </div>
-
-<canvas id="myCanvas" width="1200" height="800"></canvas>
-
-<script>
-    // JavaScript code goes here
-</script>
-
+        
+        <canvas id="myCanvas" width="1200" height="800"></canvas>
+        
+        
+    <script type="text/javascript" src="user.js"></script>
+    <script type="text/javascript" src="run.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 
 </body>
 </html>

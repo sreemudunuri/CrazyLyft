@@ -13,7 +13,7 @@ function generateAdapter(apiURL){
         },
 
         showUser: function(userID){
-            return fetch(`${apiURL}/${userID}`).then(res => res.json()).then(console.log)
+            return fetch(`${apiURL}/${userID}`).then(res => res.json())
         },
 
         createUser: function(name){
