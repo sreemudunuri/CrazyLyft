@@ -12,6 +12,10 @@ function generateAdapter(apiURL){
             return fetch(apiURL).then(res => res.json()).then(console.log)
         },
 
+        showUser: function(userID){
+            return fetch(`${apiURL}/${userID}`).then(res => res.json()).then(console.log)
+        },
+
         createUser: function(name){
             let postConfig = {
                 method: 'POST',
