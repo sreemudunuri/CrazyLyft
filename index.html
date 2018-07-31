@@ -9,31 +9,37 @@
 </head>
 <body>
 
-    <h1 align = "center">TAXI!</h1>
+    <nav class="navbar navbar-light" style="background-color: #ffc107;">
+        <span class="navbar-brand mb-0 h1">IT'S TAXI TIME</span>
+    </nav>
+    <br>
 
     <div id = "sidebar">
         <form id = "username">
-            <label for="name"><h2>User Name:</h2></label><br>
-            <input type="text" name = "name" placeholder = "Enter Your Name!"><br>
-            <input type="submit">
-        </form>
+            <div class = "form-group">
+                <label for="name"><h2>User Name:</h2></label><br>
+                <input type="text" name = "name" placeholder = "Enter Your Name!"><br>
+            </div>
+                <input type="submit">
+            </form>
+            <br>
 
-        <h2>Timer</h2>
-        <div id = 'timer-box'>
-            <fieldset>
-                <p><strong>0</strong></p>
-            </fieldset>
-            
+        
+       <div class="card bg-warning text-dark">
+            <div class="card-body" id = 'timer-card'>
+                <h2 class="card-title">Timer</h2>
+                <p><strong> 45 </strong> </p>
+            </div>
         </div>
+        <br>
 
-        <h2>Score</h2>
-        <div id = 'score-box'>
-
-            <fieldset>
-                <p><em>0</em></p>
-
-            </fieldset>
-            
+        <div class="card bg-dark text-white">
+            <div class="card-body" id = 'score-card'>
+                <h2 class="card-title">Score</h2>
+                <p>
+                    <em> 0 </em>
+                </p>
+            </div>
         </div>
 
 
