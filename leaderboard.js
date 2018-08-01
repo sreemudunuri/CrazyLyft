@@ -6,7 +6,7 @@ let finalScore = parseInt(document.getElementById('score').innerText)
 function renderFinalScore(scoreObj){
     let scoreDisplayHTML =  `<div class="jumbotron">
              <h1 class="display-4">You picked up ${scoreObj.points} passengers!</h1>
-            </div><br><h2>High Scores:</h2>`
+            </div><br>`
     canvasDiv.innerHTML = scoreDisplayHTML        
 }
 
@@ -34,7 +34,7 @@ function makeLeaderBoardHTML(userArr){
             `
     }).join("")
 
-    canvasDiv.innerHTML += boardHTML
+    canvasDiv.innerHTML += `<div class="jumbotron"><h2>High Scores:</h2>${boardHTML}</div>`
 }
 
 function renderLeaderBoard(){
