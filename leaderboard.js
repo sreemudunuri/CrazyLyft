@@ -5,7 +5,7 @@ let finalScore = parseInt(document.getElementById('score').innerText)
 
 function renderFinalScore(scoreObj){
     let scoreDisplayHTML =  `<div class="jumbotron">
-             <h1 class="display-4">You picked up ${scoreObj.points} passengers!</h1>
+             <h1 class="display-4">You picked up ${scoreObj.points} passengers!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Play Again!</button>
             </div><br>`
     canvasDiv.innerHTML = scoreDisplayHTML        
 }

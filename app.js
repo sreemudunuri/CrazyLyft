@@ -4,13 +4,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     userForm.addEventListener('submit', function(event){
         event.preventDefault()
-        console.log(event.currentTarget[0].value)
+        
        
         userAdapter.createUser(event.currentTarget[0].value)
         .then(res => {renderUserName(res)})
         .then(setInterval(run, 10))
         .then(manageTheClock)
 
+    })
+
+    canvasDiv.addEventListener("click",function(event){
+        if (event.target.dataset.playagain){
+            location.reload();
+        }
     })
 
 
