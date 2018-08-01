@@ -13,12 +13,23 @@ h1, h2, h3, p {
     margin-left: .75%; 
 }
 
-#myCanvas, #canvas-div {
+#canvas-div {
     float: left;
     background: #eee; 
     display: block; 
     margin: 0 auto;
     /* padding-left: 15px; */
+    margin-left: 5%; 
+}
+
+#myCanvas{
+  float: left;
+    background-image: url('https://previews.123rf.com/images/popaukropa/popaukropa1510/popaukropa151000270/46551449-road-and-transport-seamless-pattern-cartoon-map-of-cars-and-traffic-bus-and-ambulance-taxis-and-scoo.jpg'); 
+    display: block; 
+    margin: 0 auto;
+    width: 1200px;
+    height: 800px;
+    
     margin-left: 5%; 
 }
 
