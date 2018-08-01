@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         myGameArea.start();
         myGamePiece = new component(30, 30, "red", 10, 120);
         myObstacle1 = new component(10, 200, "green", 300, 120);
-        myObstacle2 = new component(10, 200, "green", 100, 20);
+        myObstacle2 = new component(50, 200, "green", 100, 20);
     }
 
     var myGameArea = {
@@ -79,19 +79,47 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     }
                 }
             var direction = ''
-            if (mybottom > othertop  && touch()  ) {
-                console.log('touch bottom');
-                direction = 's'
-                updateMove(direction)
-                return true
-            }
-            if (mytop < otherbottom && touch()){
+            if ((myleft   <=  otherright &&
+                // myleft   <=   otherleft &&
+                // myright  <=  otherright &&
+                myright  >=   otherleft &&
+                mytop     >    othertop &&
+                mytop     <=   otherbottom &&
+                mybottom   >  othertop  &&
+                mybottom    >    otherbottom  )  //&& touch()
+            ){
                 console.log('touch top');
+                direction = 's'
+                // updateMove(direction)
+                // return true
+            }
+            if ((myleft  <=   otherright &&
+                // myleft   >=   otherleft &&
+                // myright  <=  otherright &&
+                myright  >=  otherleft &&
+                mytop     <    othertop &&
+                mytop     <   otherbottom &&
+                mybottom   >=  othertop  &&
+                mybottom    <    otherbottom  ) // && touch()
+            ){
+                 console.log('touch bottom');
             } 
-            if (myright + speed >=  otherleft && touch()) {
+            if ((myleft  <   otherright &&
+                myleft   <   otherleft &&
+                myright  <   otherright &&
+                myright  >=  otherleft &&
+                mytop   <=    otherbottom &&
+                mybottom  >=  othertop  ) //&& touch()
+            ) {
                 console.log('touch right');
             }
-            if (myleft > otherright && touch()) {
+            if ((myleft  <=   otherright &&
+                myleft   >   otherleft &&
+                myright  >   otherright &&
+                myright  >  otherleft &&
+                mytop     <=   otherbottom &&
+                mybottom  >=  othertop  ) // && touch()
+            ) {
                 console.log('touch left');
             }
             
