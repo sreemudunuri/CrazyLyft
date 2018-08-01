@@ -14,7 +14,6 @@ const add5sec = () => {
 const timerCheck = (countdownFn) => {
     if (timer === 0) {
         clearInterval(countdownFn)
-        
         timerHTML.innerHTML = `<h3>Time's Up!</h3>`
     }
 }
