@@ -13,8 +13,11 @@ function renderFinalScore(scoreObj){
 
 function makeLeaderBoardHTML(userArr){
     let boardHTML = userArr.map(function(userElement){
+        
         return `
-             <p class="lead">${userElement.name}</p>
+             <p class="lead">${userElement.name}: ${Math.max(...(userElement.scores.map(function (element) {
+                return element.points
+            })))}   </p>
             `
     }).join("")
     canvasDiv.innerHTML += boardHTML
@@ -22,7 +25,7 @@ function makeLeaderBoardHTML(userArr){
 
 function renderLeaderBoard(){
     userAdapter.index().then(res => {
-        debugger;
+       
         makeLeaderBoardHTML(res)
     })
 }
@@ -30,7 +33,7 @@ function renderLeaderBoard(){
 
 function postAndRenderFinalScore(){
     userAdapter.postScore(finalScore, parseInt(document.getElementsByClassName('card-body')[0].id)).then(res => {
-        debugger;
+        
         renderFinalScore(res)
     }).then(renderLeaderBoard)
 }
