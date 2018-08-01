@@ -25,7 +25,6 @@ const timerCheck = (countdownFn) => {
 const manageTheClock = () => {
 
     let startTheClock = setInterval(countDown, 1000)
-
     clockMonitor = setInterval( () => {
         timerCheck(startTheClock)
     }, 1000)

@@ -9,7 +9,7 @@ let pointPostURL = 'http://localhost:3000/api/v1/scores'
 function generateAdapter(apiURL){
     return {
         index: function(){
-            return fetch(apiURL).then(res => res.json()).then(console.log)
+            return fetch(apiURL).then(res => res.json())
         },
 
         showUser: function(userID){
