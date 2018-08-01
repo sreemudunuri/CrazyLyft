@@ -44,6 +44,10 @@ function generateAdapter(apiURL){
             }
 
             return fetch(pointPostURL, postConfig).then(res => res.json())
+        },
+
+        deleteUser: function(userID){
+            return fetch(`${apiURL}/${userID}`, {method: 'DELETE'})
         }
     }
 }
