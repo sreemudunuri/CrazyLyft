@@ -6,7 +6,7 @@ function ignition(){
     cab.style.top = '0px';
 }
 
-ignition()
+// ignition()
 
 document.addEventListener('keydown',function(event){
     console.log(event.keyCode)

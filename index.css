@@ -14,13 +14,13 @@
 
 #myCanvas{
   float: left;
-    background-image: url('https://previews.123rf.com/images/popaukropa/popaukropa1510/popaukropa151000270/46551449-road-and-transport-seamless-pattern-cartoon-map-of-cars-and-traffic-bus-and-ambulance-taxis-and-scoo.jpg'); 
+    background-image: url('https://thepracticaldev.s3.amazonaws.com/i/pdcs2uqsg0per1odudp4.png'); 
     display: block; 
     margin: 0 auto;
     width: 1200px;
     height: 800px;
     
-    margin-left: 5%; 
+    
 }
 
 #car{
