@@ -11,27 +11,27 @@ ignition()
 document.addEventListener('keydown',function(event){
     console.log(event.keyCode)
     
-    if (event.keyCode == 37 ){
+    if (event.keyCode == 37 && cab.style.left !== '-70px' ){
         moveLeft()
-    } else if (event.keyCode == 38){
+    } else if (event.keyCode == 38 && cab.style.top !== '-20px'){
         moveUp()
-    } else if (event.keyCode == 39){
+    } else if (event.keyCode == 39 && cab.style.left !== '1020px'){
         moveRight()
-    } else if (event.keyCode == 40){
+    } else if (event.keyCode == 40 && cab.style.top !== '670px'){
         moveDown()
     }
 })
 
 
 function moveLeft() {
-    cab.style.left = parseInt(cab.style.left) - 5 + 'px';
+    cab.style.left = parseInt(cab.style.left) - 10 + 'px';
 }
 function moveUp() {
-    cab.style.top = parseInt(cab.style.top) - 5 + 'px';
+    cab.style.top = parseInt(cab.style.top) - 10 + 'px';
 }
 function moveRight() {
-    cab.style.left = parseInt(cab.style.left) + 5 + 'px';
+    cab.style.left = parseInt(cab.style.left) + 10 + 'px';
 }
 function moveDown() {
-    cab.style.top = parseInt(cab.style.top) + 5 + 'px';
+    cab.style.top = parseInt(cab.style.top) + 10 + 'px';
 }

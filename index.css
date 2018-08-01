@@ -25,7 +25,7 @@
 
 #car{
     float: left;
-    background-color: #e0a800; 
+    /* background-color: #e0a800;  */
     display: block; 
     margin: 0 auto;
     width: 120px;
