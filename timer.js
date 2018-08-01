@@ -29,11 +29,4 @@ const manageTheClock = () => {
         timerCheck(startTheClock)
     }, 1000)
 
-    // if (timer === 0){
-    //     clearInterval(clockMonitor)
-    // }
-    
-
 }
-
-// let startTheClock = setInterval(countDown, 1000)
