@@ -1,19 +1,27 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
     var myGamePiece;
-
+    var obstacles = []
     function startGame() {
         myGameArea.start();
         myGamePiece = new component(30, 30, "red", 10, 120);
-        myObstacle1 = new component(10, 200, "green", 300, 120);
-        myObstacle2 = new component(50, 200, "green", 100, 20);
-    }
 
+        myObstacle1 = new component(50, 200, "green", 100, 120);
+        obstacles.push(myObstacle1)    ;
+        myObstacle2 = new component(50, 200, "green", 50, 20);
+        obstacles.push(myObstacle2);
+        myObstacle3 = new component(50, 200, "green", 400, 20);
+        obstacles.push(myObstacle3);
+        myObstacle4 = new component(50, 200, "green", 200, 20);
+        obstacles.push(myObstacle4)
+
+    }
+    var direction = ''
     var myGameArea = {
         canvas: document.createElement("canvas"),
         start: function () {
-            this.canvas.width = 480;
-            this.canvas.height = 270;
+            this.canvas.width = 1200;
+            this.canvas.height = 800;
             this.context = this.canvas.getContext("2d");
             document.body.insertBefore(this.canvas, document.body.childNodes[0]);
             this.interval = setInterval(updateGameArea, 20);
@@ -23,10 +31,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
         stop: function () {
             console.log('eeharera');
-            
+
             // clearInterval(this.interval);
             // if (myGamePiece) {
-                
+
             // }
         }
     }
@@ -44,8 +52,19 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ctx.fillRect(this.x, this.y, this.width, this.height);
         };
         this.newPos = function () {
-            this.x += this.speedX;
-            this.y += this.speedY;
+            console.log(myGamePiece.crashWith(myObstacle1))
+            if (!myGamePiece.crashWith(myObstacle1)) {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+            } 
+
+            if (myGamePiece.crashWith(myObstacle1)) {
+                this.x -= 4
+            }
+
+            
+            
         };
         this.crashWith = function (otherobj) {
             var myleft = this.x;
@@ -56,93 +75,76 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var otherright = otherobj.x + (otherobj.width);
             var othertop = otherobj.y;
             var otherbottom = otherobj.y + (otherobj.height);
-            // var crash = true;
-            // if ((mybottom < othertop) ||
-            //     (mytop > otherbottom) ||
-            //     (myright < otherleft) ||
-            //     (myleft > otherright)) {
-            //     crash = false;
-            // }
-            // console.log(mybottom, mytop);
-            // console.log(othertop);
-
+    
             var touch = function () {
-                
-            
                 if (myleft < otherright &&
                     myright > otherleft &&
                     mytop < otherbottom &&
                     mybottom > othertop) {
                     // console.log('true');
-                    
-                    return true   
-                    }
+                    return true
                 }
-            var direction = ''
-            if ((myleft   <=  otherright &&
-                // myleft   <=   otherleft &&
-                // myright  <=  otherright &&
-                myright  >=   otherleft &&
-                mytop     >    othertop &&
-                mytop     <=   otherbottom &&
-                mybottom   >  othertop  &&
-                mybottom    >    otherbottom  )  //&& touch()
-            ){
-                console.log('touch top');
-                direction = 's'
+            }
+            if ((myleft <= otherright &&
+                    // myleft   <=   otherleft &&
+                    // myright  <=  otherright &&
+                    myright >= otherleft &&
+                    mytop > othertop &&
+                    mytop <= otherbottom &&
+                    mybottom > othertop &&
+                    mybottom > otherbottom) //&& touch()
+            ) {
+                console.log('touch top prefent W87');
+                direction = 'w'
                 // updateMove(direction)
-                // return true
+                return true
             }
-            if ((myleft  <=   otherright &&
-                // myleft   >=   otherleft &&
-                // myright  <=  otherright &&
-                myright  >=  otherleft &&
-                mytop     <    othertop &&
-                mytop     <   otherbottom &&
-                mybottom   >=  othertop  &&
-                mybottom    <    otherbottom  ) // && touch()
-            ){
-                 console.log('touch bottom');
-            } 
-            if ((myleft  <   otherright &&
-                myleft   <   otherleft &&
-                myright  <   otherright &&
-                myright  >=  otherleft &&
-                mytop   <=    otherbottom &&
-                mybottom  >=  othertop  ) //&& touch()
+            if ((myleft <= otherright &&
+                    // myleft   >=   otherleft &&
+                    // myright  <=  otherright &&
+                    myright >= otherleft &&
+                    mytop < othertop &&
+                    mytop < otherbottom &&
+                    mybottom >= othertop &&
+                    mybottom < otherbottom) // && touch()
             ) {
-                console.log('touch right');
+                console.log('touch bottom, prefent S83');
+                return true
             }
-            if ((myleft  <=   otherright &&
-                myleft   >   otherleft &&
-                myright  >   otherright &&
-                myright  >  otherleft &&
-                mytop     <=   otherbottom &&
-                mybottom  >=  othertop  ) // && touch()
+            if ((myleft < otherright &&
+                    myleft < otherleft &&
+                    myright < otherright &&
+                    myright >= otherleft &&
+                    mytop <= otherbottom &&
+                    mybottom >= othertop) //&& touch()
             ) {
-                console.log('touch left');
+                console.log('touch right, prefent D68');
+                return true
             }
-            
-            
-
-            
-
-           
+            if ((myleft <= otherright &&
+                    myleft > otherleft &&
+                    myright > otherright &&
+                    myright > otherleft &&
+                    mytop <= otherbottom &&
+                    mybottom >= othertop) // && touch()
+            ) {
+                console.log('touch left, prefent A65');
+                direction = 'a'
+                return true
+            }
         }
-        
-        
-
     }
-    // function collides(otherobj) {
-    //     return	myleft < otherright &&
-    //     myright > otherleft &&
-    //     mytop < otherobj.y + otherbottom &&
-    //     otherbottom > othertop;
-    //     }
     function updateMove(direction) {
         // debugger
-        if (direction === 's') {
-            myGamePiece.speedY -=speed
+        stopMove()
+        if (direction === 'w') {
+            myGamePiece.speedY += 100
+            // debugger
+        }
+        if (direction === 'a') {
+            stopMove()
+            myGamePiece.speedX = 100
+            // debugger
         }
     }
 
@@ -152,31 +154,38 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function updateGameArea() {
-        
-        if (myGamePiece.crashWith(myObstacle2)) {
+        obstacles.forEach((obst) =>{
+            obst  
+
+        })
+        if (myGamePiece.crashWith(myObstacle1)) {
             // myGameArea.stop();
-            console.log('true crash');
+            // console.log('true crash');
             myGameArea.clear();
             stopMove()
             playerMove()
             myGamePiece.newPos();
-            updateMove()
-            // debugger
+            updateMove(direction)
             myGamePiece.update();
             myObstacle1.update();
             myObstacle2.update();
+            myObstacle3.update();
+            myObstacle4.update();
         } else {
-        myGameArea.clear();
-        stopMove()
-        playerMove()
-        myGamePiece.newPos();
-        myGamePiece.update();
-        myObstacle1.update();
-        myObstacle2.update();
+            myGameArea.clear();
+            stopMove()
+            playerMove()
+            myGamePiece.newPos();
+            myGamePiece.update();
+            myObstacle1.update();
+            myObstacle2.update();
+            myObstacle3.update();
+            myObstacle4.update();
+            // myObstacle5.update();
         }
 
-
     }
+    
 
     const speed = 4
     var keys = [];
