@@ -9,7 +9,7 @@ function ignition(){
 // ignition()
 
 document.addEventListener('keydown',function(event){
-    console.log(event.keyCode)
+    // console.log(event.keyCode)
     
     if (event.keyCode == 37 && cab.style.left !== '-70px' ){
         moveLeft()
