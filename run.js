@@ -1,197 +1,182 @@
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
 
-    var canvas = document.getElementById("myCanvas");
-    var ctx = canvas.getContext("2d");
+    var myGamePiece;
 
-
-    var curbThickness = 50;
-
-    var carX = curbThickness/2;
-    var carY= 550;
-
-    var dx = 6
-    var dy = 6
-
-    function curbV1Left(){
-        ctx.beginPath();
-        ctx.rect(0, 0, curbThickness, 525);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-
+    function startGame() {
+        myGameArea.start();
+        myGamePiece = new component(30, 30, "red", 10, 120);
+        myObstacle1 = new component(10, 200, "green", 300, 120);
+        myObstacle2 = new component(10, 200, "green", 100, 20);
     }
 
-    function curbV2Left(){
-        ctx.beginPath();
-        ctx.rect(0, 600, curbThickness, 300);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    function curbV1Right(){
-        ctx.beginPath();
-        ctx.rect(canvas.width - curbThickness, 0, curbThickness, canvas.height);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    function curbH1Top(){
-        ctx.beginPath();
-        ctx.rect(0, 0, canvas.width, curbThickness);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    function curbH1Bottom(){
-        ctx.beginPath();
-        ctx.rect(0, canvas.height - curbThickness, canvas.width, curbThickness);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    var curbVLeftBlock1X = 2*curbThickness
-    var curbVLeftBlock1Y = 2*curbThickness
-
-    function curbVLeftBlock1(){
-        ctx.beginPath();
-        ctx.rect(curbVLeftBlock1X, curbVLeftBlock1Y + 4, 550, 200);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    var curbVLeftBlock2X = 2*curbThickness
-    var curbVLeftBlock2Y = curbVLeftBlock1Y + curbThickness + 200
-
-    function curbVLeftBlock2(){
-        ctx.beginPath();
-        ctx.rect(curbVLeftBlock2X , curbVLeftBlock2Y, 550, 200);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    var curbVRightBlock1X =  curbVLeftBlock2X + 550 + curbThickness
-    var curbVRightBlock1Y = 2*curbThickness + 25
-
-    function curbVRightBlock1(){
-        ctx.beginPath();
-        ctx.rect(curbVRightBlock1X , curbVRightBlock1Y, 400, 400);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-    function curbHBottomBlock1(){
-        ctx.beginPath();
-        ctx.rect(2*curbThickness , curbVLeftBlock2Y - 2 + 250 + curbThickness, 1000, 50);
-        ctx.fillStyle = "#000000";
-        ctx.fill();
-        ctx.closePath();
-    }
-
-
-
-
-
-    function drawCar(){
-        ctx.beginPath();
-        ctx.rect( carX, carY, 48,48);
-        ctx.fillStyle = "#ff5264";
-        ctx.fill();
-        ctx.closePath();
-
-    }
-
-
-
-
-
-    function drawCurbs() {
-        curbV1Left()
-        curbV2Left()
-        curbH1Top()
-        curbH1Bottom()
-        curbV1Right()
-        curbVLeftBlock1()
-        curbVLeftBlock2()
-        curbVRightBlock1()
-        curbHBottomBlock1()
-    }
-
-
-    var rightPressed = false;
-    var leftPressed = false;
-
-    var upPressed = false;
-    var downPressed = false;
-
-    document.addEventListener("keydown", keyDownHandler, false);
-    document.addEventListener("keyup", keyUpHandler, false);
-
-    function keyDownHandler(e) {
-        console.log(e)
-        if(e.keyCode == 39) {
-            rightPressed = true;
-        } else if(e.keyCode == 37) {
-            leftPressed = true;
-        } else if(e.keyCode == 38) {
-            upPressed = true;
-        } else if (e.keyCode == 40) {
-            downPressed = true;
-        }
-    }
-    function keyUpHandler(e) {
-        if(e.keyCode == 39) {
-            rightPressed = false;
-        }
-        else if(e.keyCode == 37) {
-            leftPressed = false;
-        } else if(e.keyCode == 38) {
-            upPressed = false;
-        } else if (e.keyCode == 40) {
-            downPressed = false;
+    var myGameArea = {
+        canvas: document.createElement("canvas"),
+        start: function () {
+            this.canvas.width = 480;
+            this.canvas.height = 270;
+            this.context = this.canvas.getContext("2d");
+            document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+            this.interval = setInterval(updateGameArea, 20);
+        },
+        clear: function () {
+            this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        },
+        stop: function () {
+            console.log('eeharera');
+            
+            // clearInterval(this.interval);
+            // if (myGamePiece) {
+                
+            // }
         }
     }
 
+    function component(width, height, color, x, y) {
+        this.width = width;
+        this.height = height;
+        this.x = x;
+        this.y = y;
+        this.speedX = 0;
+        this.speedY = 0;
+        this.update = function () {
+            ctx = myGameArea.context;
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        };
+        this.newPos = function () {
+            this.x += this.speedX;
+            this.y += this.speedY;
+        };
+        this.crashWith = function (otherobj) {
+            var myleft = this.x;
+            var myright = this.x + (this.width);
+            var mytop = this.y;
+            var mybottom = this.y + (this.height);
+            var otherleft = otherobj.x;
+            var otherright = otherobj.x + (otherobj.width);
+            var othertop = otherobj.y;
+            var otherbottom = otherobj.y + (otherobj.height);
+            // var crash = true;
+            // if ((mybottom < othertop) ||
+            //     (mytop > otherbottom) ||
+            //     (myright < otherleft) ||
+            //     (myleft > otherright)) {
+            //     crash = false;
+            // }
+            // console.log(mybottom, mytop);
+            // console.log(othertop);
 
-
-    function run() {
-
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        drawCurbs()
-        drawCar()
-
-        if(rightPressed) {
-            if (carX + dx < canvas.width - 99) {
-                carX += dx
+            var touch = function () {
+                
+            
+                if (myleft < otherright &&
+                    myright > otherleft &&
+                    mytop < otherbottom &&
+                    mybottom > othertop) {
+                    // console.log('true');
+                    
+                    return true   
+                    }
+                }
+            var direction = ''
+            if (mybottom > othertop  && touch()  ) {
+                console.log('touch bottom');
+                direction = 's'
+                updateMove(direction)
+                return true
             }
-        } else if (leftPressed) {
-            if (carX - dx > 49) {
-                carX -= dx
+            if (mytop < otherbottom && touch()){
+                console.log('touch top');
+            } 
+            if (myright + speed >=  otherleft && touch()) {
+                console.log('touch right');
             }
-        } else if (upPressed) {
-            if (carY - dy > 50) {
-                carY -= dy
+            if (myleft > otherright && touch()) {
+                console.log('touch left');
             }
+            
+            
 
-        } else if (downPressed) {
-            if (carY + dy < canvas.height - 99) {
-                carY += dy
-            }
+            
 
+           
+        }
+        
+        
+
+    }
+    // function collides(otherobj) {
+    //     return	myleft < otherright &&
+    //     myright > otherleft &&
+    //     mytop < otherobj.y + otherbottom &&
+    //     otherbottom > othertop;
+    //     }
+    function updateMove(direction) {
+        // debugger
+        if (direction === 's') {
+            myGamePiece.speedY -=speed
+        }
+    }
+
+    function stopMove() {
+        myGamePiece.speedX = 0;
+        myGamePiece.speedY = 0;
+    }
+
+    function updateGameArea() {
+        
+        if (myGamePiece.crashWith(myObstacle2)) {
+            // myGameArea.stop();
+            console.log('true crash');
+            myGameArea.clear();
+            stopMove()
+            playerMove()
+            myGamePiece.newPos();
+            updateMove()
+            // debugger
+            myGamePiece.update();
+            myObstacle1.update();
+            myObstacle2.update();
+        } else {
+        myGameArea.clear();
+        stopMove()
+        playerMove()
+        myGamePiece.newPos();
+        myGamePiece.update();
+        myObstacle1.update();
+        myObstacle2.update();
         }
 
 
     }
 
-    setInterval(run, 10)
+    const speed = 4
+    var keys = [];
+
+    function playerMove(e) {
+        // console.log(e)
+        if (keys[87]) {
+            myGamePiece.speedY -= speed;
+        }
+        if (keys[83]) {
+            myGamePiece.speedY += speed;
+        }
+        if (keys[65]) {
+            myGamePiece.speedX -= speed;
+        }
+        if (keys[68]) {
+            myGamePiece.speedX += speed;
+        }
+        return false;
+    }
+
+    document.addEventListener("keydown", function (e) {
+        keys[e.keyCode] = true;
+    });
+
+    document.addEventListener("keyup", function (e) {
+        keys[e.keyCode] = false;
+    });
+    startGame()
+
 })
-
-
-

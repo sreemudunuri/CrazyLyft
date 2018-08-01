@@ -1,0 +1,19 @@
+#myCanvas{
+    background-image: url("city.png");
+}
+
+.car{
+    animation: shakes 1s linear infinite 
+    
+} 
+ 
+
+/* myCanvas {
+    display:block;
+    border: solid 1px black;
+    position:relative;
+    margin: 0 auto 0 auto;
+    background: url('background.png');
+    width: 300px;
+    height: 150px;
+    } */
