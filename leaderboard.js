@@ -12,14 +12,28 @@ function renderFinalScore(scoreObj){
 
 
 function makeLeaderBoardHTML(userArr){
-    let boardHTML = userArr.map(function(userElement){
-        
-        return `
-             <p class="lead">${userElement.name}: ${Math.max(...(userElement.scores.map(function (element) {
+    let highScores =[]
+    userArr.forEach(function(userElement){
+
+        let newObj = {
+            name: userElement.name, 
+            highScore: Math.max(...(userElement.scores.map(function (element) {
                 return element.points
-            })))}   </p>
+            })))
+        }
+        highScores.push(newObj)
+    })
+  
+    let sortedBoardObjs = highScores.sort(function (a, b) {
+        return a.highScore > b.highScore;
+    }).reverse()
+
+    let boardHTML = sortedBoardObjs.map(function(Obj){
+        return `
+             <p class="lead">${Obj.name}: ${Obj.highScore}   </p>
             `
     }).join("")
+
     canvasDiv.innerHTML += boardHTML
 }
 
