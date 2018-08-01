@@ -13,7 +13,7 @@ h1, h2, h3, p {
     margin-left: .75%; 
 }
 
-#myCanvas{
+#myCanvas, #canvas-div {
     float: left;
     background: #eee; 
     display: block; 
