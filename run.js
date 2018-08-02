@@ -4,22 +4,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var obstacles = []
     var car = new Image();
     car.src = "./car.svg"
-
+    var pass = new Image()
+    pass.src = "./skeleton-idle_15.png"
     var passangersArray = []
 
     function startGame() {
         myGameArea.start();
-        myGamePiece = new carComponent(25, 25, "rgba(255, 255, 255, 0.4)", 28, 24);
+        myGamePiece = new carComponent(25, 25, "green", 28, 24);
         // myGamePiece
 
-        myObstacle1 = new component(1200, 10, "blue", 0, 0);
-        obstacles.push(myObstacle1) ;
-        myObstacle2 = new component(1200, 10, "blue", 0, 800);
-        obstacles.push(myObstacle2);
-        myObstacle3 = new component(5, 800, "blue", 0, 0);
-        obstacles.push(myObstacle3);
-        myObstacle4 = new component(5, 800, "blue", 1200, 0);
-        obstacles.push(myObstacle4)
+        // myObstacle1 = new component(1200, 10, "blue", 0, 0);
+        // obstacles.push(myObstacle1) ;
+        // myObstacle2 = new component(1200, 10, "blue", 0, 800);
+        // obstacles.push(myObstacle2);
+        // myObstacle3 = new component(5, 800, "blue", 0, 0);
+        // obstacles.push(myObstacle3);
+        // myObstacle4 = new component(5, 800, "blue", 1200, 0);
+        // obstacles.push(myObstacle4)
         myObstacle5 = new component(120, 90, "black", 310, 330);
         obstacles.push(myObstacle5)
         myObstacle6 = new component(120, 90, "black", 714, 330);
@@ -69,9 +70,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // myObstacle29 = new component(80, 140, "green", 900, 0);
         // obstacles.push(myObstacle29)
 
-<<<<<<< HEAD
-        pass1 = new passanger( 25,25, 'green', 30 ,30)
-=======
         pass1 = new passanger( 25,25, 'green', 38, 100)
         passangersArray.push(pass1)
         pass2 = new passanger( 25,25, 'green', 100, 170)
@@ -162,7 +160,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
->>>>>>> collisionSree
 
 
     }
@@ -194,13 +191,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ctx.beginPath();
             ctx.fillStyle = color
             ctx.fillRect(this.x, this.y, this.width, this.height);
+            ctx.drawImage(pass, this.x-20, this.y-40, this.width+40, this.height+50);
             ctx.fill();
             ctx.closePath()
-<<<<<<< HEAD
-        }
-=======
         };
->>>>>>> collisionSree
     }
 
     function component(width, height, color, x, y) {
@@ -218,11 +212,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ctx.fillRect(this.x, this.y, this.width, this.height);
             ctx.fill();
             ctx.closePath()
-<<<<<<< HEAD
-            
-            
-=======
->>>>>>> collisionSree
         };
     }
 
@@ -235,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.speedX = 0;
         this.speedY = 0;
         this.moveAngle = 180
-        this.drawImage = function (deg){
+        this.drawImage = function (deg, color){
             ctx.save();
             
             ctx.translate(this.x+this.width/2, this.y+this.height/2);
@@ -402,65 +391,64 @@ document.addEventListener("DOMContentLoaded", function (event) {
         
         // stopMove()
         playerMove()
-<<<<<<< HEAD
-        renderAllObsticals("rgba(255, 255, 255, 0.4)")
-        // myGamePiece.newPos();
-        // myGamePiece.update();
-        myGamePiece.drawImage(dir);
-        pass1.update();
-=======
         renderAllPassangers("white");
         renderAllObsticals("red")
 
 
         // myGamePiece.newPos();
         // myGamePiece.update();
-        myGamePiece.drawImage(dir);
-
-
-
->>>>>>> collisionSree
+        myGamePiece.drawImage(dir, "green");
     }
     
+    function insideBoard() {
+        if(myGamePiece.y > 2 && 
+        myGamePiece.y < 800 - myGamePiece.height -2 &&
+        myGamePiece.x > 2 &&
+        myGamePiece.x < 1200 - myGamePiece.width - 2){
+            return true
+        }else{
+            false
+        }
+    }
 
     const speed = 4
     const slowD = 3
     var keys = [];
     var dir = 0
     function playerMove(e) {
-        // console.log(e)
-        if (keys[87] && !checkAllObsticals()) {
+        // key W
+        if (keys[87] && !checkAllObsticals() && myGamePiece.y > 2) {
             dir = 180
             myGamePiece.y -= speed;
-        }
-        if (keys[87] && checkAllObsticals()) {
+        } 
+        if (keys[87] && checkAllObsticals() && myGamePiece.y > 2 ){
             myGamePiece.y -= speed - slowD ;
             dir = 180
-        }
-        if (keys[83] && !checkAllObsticals()) {
+        } //key S
+        if (keys[83] && !checkAllObsticals() && myGamePiece.y < 800 - myGamePiece.height -2)  {
             dir = 0
             myGamePiece.y += speed ;
         }
-        if (keys[83] && checkAllObsticals()) {
+        if (keys[83] && checkAllObsticals() && myGamePiece.y < 800 - myGamePiece.height -2 ) {
             dir = 0
             myGamePiece.y += speed - slowD;
         }
         if(keys[87] && keys[68]){
             dir = 45
-        }
-        if (keys[65] && !checkAllObsticals()) {
+        } // key A
+        if (keys[65] && !checkAllObsticals() && myGamePiece.x > 2 ){
             dir = 90
             myGamePiece.x -= speed;
         }
-        if (keys[65] && checkAllObsticals()) {
+        if (keys[65] && checkAllObsticals() && myGamePiece.x > 2 ){
             dir = 90
             myGamePiece.x -= speed - slowD;
-        }
-        if (keys[68] && !checkAllObsticals()) {
+        } // key D
+        if (keys[68] && !checkAllObsticals() &&  myGamePiece.x < 1200 - myGamePiece.width - 2){
             dir = 270
             myGamePiece.x += speed;
         }
-        if (keys[68] && (checkAllObsticals())) {
+        if (keys[68] && checkAllObsticals() && myGamePiece.x < 1200 - myGamePiece.width - 2) {
             dir = 270
             myGamePiece.x += speed - slowD;
         }
