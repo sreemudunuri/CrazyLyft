@@ -408,7 +408,7 @@
 
     function checkAllPassangers() {
 
-        passangersArray.forEach(() => {
+        // passangersArray.forEach(() => {
             if(myGamePiece.crashWith(passangersArray[0])) {
                 // add points function here
                 
@@ -418,7 +418,7 @@
                 addPoints()
                 addTime()
             }
-        })
+        // })
 
     }
 
