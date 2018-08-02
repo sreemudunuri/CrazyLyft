@@ -6,6 +6,20 @@
     car.src = "./car.svg"
 
     var passangersArray = []
+    function shuffle (array) {
+        var i = 0
+            , j = 0
+            , temp = null
+
+        for (i = array.length - 1; i > 0; i -= 1) {
+            j = Math.floor(Math.random() * (i + 1))
+            temp = array[i]
+            array[i] = array[j]
+            array[j] = temp
+        }
+    }
+
+
 
 
     function startGame() {
@@ -158,10 +172,7 @@
         // pass42 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass42)
 
-
-
-
-
+        shuffle(passangersArray)
 
     }
     var direction = ''
@@ -373,11 +384,21 @@
 
     }
 
+
+
+
     function renderAllPassangers(color){
         if (passangersArray[0]) {
-            console.log(passangersArray)
+
             passangersArray[0].update(color)
         }
+        // console.log(newRandomPassenger)
+        //
+        // if (newRandomPassenger) {
+        //
+        //     newRandomPassenger.update(color)
+        // }
+
     }
 
     function updateGameArea() {
