@@ -7,6 +7,7 @@
 
     var passangersArray = []
 
+
     function startGame() {
         myGameArea.start();
         myGamePiece = new carComponent(25, 25, "rgba(255, 255, 255, 0.4)", 28, 24);
@@ -79,22 +80,23 @@
         passangersArray.push(pass4)
         pass5 = new passanger( 25, 25, 'green', 38, 500)
         passangersArray.push(pass5)
-        // pass6 = new passanger( 25, 25, 'green', 38, 100)
-        // passangersArray.push(pass6)
-        // pass7 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass7)
-        // pass8 = new passanger( 25, 25, 'green', 530, 600)
-        // passangersArray.push(pass8)
-        // pass9 = new passanger( 25, 25, 'green', 678, 180)
-        // passangersArray.push(pass9)
-        // pass10 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass10)
-        // pass11 = new passanger( 25, 25, 'green', 935, 580)
-        // passangersArray.push(pass11)
-        // pass12 = new passanger( 25, 25, 'green', 1020, 580)
-        // passangersArray.push(pass12)
-        // pass12 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass12)
+        pass6 = new passanger( 25, 25, 'green', 38, 100)
+        passangersArray.push(pass6)
+        pass7 = new passanger( 25, 25, 'green', 38, 500)
+        passangersArray.push(pass7)
+        pass8 = new passanger( 25, 25, 'green', 530, 600)
+        passangersArray.push(pass8)
+        pass9 = new passanger( 25, 25, 'green', 678, 180)
+        passangersArray.push(pass9)
+        pass10 = new passanger( 25, 25, 'green', 38, 500)
+        passangersArray.push(pass10)
+        pass11 = new passanger( 25, 25, 'green', 935, 580)
+        passangersArray.push(pass11)
+        pass12 = new passanger( 25, 25, 'green', 1020, 580)
+        passangersArray.push(pass12)
+        pass13 = new passanger( 25, 25, 'green', 38, 500)
+        passangersArray.push(pass13)
+
         // pass13 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass13)
         // pass14 = new passanger( 25, 25, 'green', 38, 500)
@@ -319,24 +321,24 @@
             // }
         }
     }
-    function updateMove(direction) {
-        // debugger
-        stopMove()
-        if (direction === 'w') {
-            myGamePiece.speedY += 100
-            // debugger
-        }
-        if (direction === 'a') {
-            stopMove()
-            myGamePiece.speedX = 100
-            // debugger
-        }
-    }
+    // function updateMove(direction) {
+    //     // debugger
+    //     stopMove()
+    //     if (direction === 'w') {
+    //         myGamePiece.speedY += 100
+    //         // debugger
+    //     }
+    //     if (direction === 'a') {
+    //         stopMove()
+    //         myGamePiece.speedX = 100
+    //         // debugger
+    //     }
+    // }
 
-    function stopMove() {
-        myGamePiece.speedX = 0;
-        myGamePiece.speedY = 0;
-    }
+    // function stopMove() {
+    //     myGamePiece.speedX = 0;
+    //     myGamePiece.speedY = 0;
+    // }
 
     function checkAllObsticals() {
         var res = []
@@ -360,36 +362,37 @@
         passangersArray.forEach((p) => {
             if(myGamePiece.crashWith(p)) {
                 // add points function here
+<<<<<<< HEAD
                 addPoints()
                 addTime()
                 //make the object dissappear
                 if (passangersArray[0]) {
                     passangersArray.shift()
                 }
+=======
+                //make the object disappear
+                var passengersIndex = passangersArray.indexOf(p)
+                passangersArray.splice(passengersIndex, 1)
+>>>>>>> collisionSree
             }
         })
 
     }
 
-
-
     function renderAllPassangers(color){
         if (passangersArray[0]) {
+            console.log(passangersArray)
             passangersArray[0].update(color)
         }
-
-        // passangersArray.map((p) => {
-        //     p.update(color)
-        // })
     }
 
     function updateGameArea() {
-        console.log(myGamePiece.speedX, myGamePiece.speedY);
+
         checkAllObsticals()
         checkAllPassangers()
         // debugger
         myGameArea.clear();
-        console.log(myGamePiece.x, myGamePiece.y);
+
         
         // stopMove()
         playerMove()
