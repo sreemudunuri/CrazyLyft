@@ -159,7 +159,58 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // pass42 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass42)
 
+// sprite
+    function sprite(options) {
+        var that = {},
+        frameIndex = 0,
+        tickCount = 0,
+        ticksPerFrame = options.ticksPerFrame || 0,
+        numberOfFrames = options.numberOfFrames || 1;
 
+        that.context = options.context;
+        that.width = options.width;
+        that.height = options.height;
+        that.image = options.image;
+
+        that.update = function () {
+
+            tickCount += 1;
+
+            if (tickCount > ticksPerFrame) {
+
+                tickCount = 0;
+
+                // If the current frame index is in range
+                if (frameIndex < numberOfFrames - 1) {
+                    // Go to the next frame
+                    frameIndex += 1;
+                } else {
+                    frameIndex = 0;
+                }
+            }
+        };
+
+        that.render = function () {
+
+            // Clear the canvas
+            that.context.clearRect(0, 0, that.width, that.height);
+
+            // Draw the animation
+            that.context.drawImage(
+                that.image,
+                frameIndex * that.width / numberOfFrames,
+                0,
+                that.width / numberOfFrames,
+                that.height,
+                0,
+                0,
+                that.width / numberOfFrames,
+                that.height
+            );
+        };
+
+        return that;
+    }
 
 
 
@@ -228,7 +279,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.moveAngle = 180
         this.drawImage = function (deg, color){
             ctx.save();
-            
             ctx.translate(this.x+this.width/2, this.y+this.height/2);
             ctx.rotate(deg*Math.PI/180.0);
             ctx.translate(-this.x-this.width/2, -this.y-this.height/2);
@@ -237,11 +287,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ctx.fillStyle = color;
             ctx.restore();
         }
-      
-            // ctx = myGameArea.context;
-            // ctx.rotate(90*Math.PI/180)
-            // ctx.drawImage(car, -this.width / 2, -this.height / 2);
-        
+
         this.update = function () {
             ctx = myGameArea.context;
             // ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
@@ -323,19 +369,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
             // }
         }
     }
-    // function updateMove(direction) {
-    //     // debugger
-    //     stopMove()
-    //     if (direction === 'w') {
-    //         myGamePiece.speedY += 100
-    //         // debugger
-    //     }
-    //     if (direction === 'a') {
-    //         stopMove()
-    //         myGamePiece.speedX = 100
-    //         // debugger
-    //     }
-    // }
 
     // function stopMove() {
     //     myGamePiece.speedX = 0;
@@ -397,18 +430,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // myGamePiece.update();
         myGamePiece.drawImage(dir, "green");
     }
-    
-    function insideBoard() {
-        if(myGamePiece.y > 2 && 
-        myGamePiece.y < 800 - myGamePiece.height -2 &&
-        myGamePiece.x > 2 &&
-        myGamePiece.x < 1200 - myGamePiece.width - 2){
-            return true
-        }else{
-            false
-        }
-    }
-
+ 
     const speed = 4
     const slowD = 3
     var keys = [];
