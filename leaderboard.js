@@ -16,7 +16,7 @@ function renderFinalScore(scoreObj){
     // canvasDiv.appendChild = scoreDisplayHTML  
     
     leaderBoard.setAttribute('class', 'jumbotron')
-    leaderBoard.innerHTML = `<h1 class="display-4"> Final Score: ${scoreObj.points} points!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Play Again!</button>`
+    leaderBoard.innerHTML = `<h1 class="display-4"> Final Score: ${scoreObj.points} points!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Refuel and Drive Again!</button>`
 
     canvasDiv.appendChild(leaderBoard)
     
