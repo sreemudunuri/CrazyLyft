@@ -5,6 +5,8 @@
     var car = new Image();
     car.src = "./car.svg"
 
+    var passangersArray = []
+
     function startGame() {
         myGameArea.start();
         myGamePiece = new carComponent(25, 25, "rgba(255, 255, 255, 0.4)", 28, 24);
@@ -24,7 +26,7 @@
         obstacles.push(myObstacle6)
         myObstacle7 = new component(120, 90, "black", 1125, 330);
         obstacles.push(myObstacle7)
-        myObstacle8 = new component(80, 140, "balck", 85, 0);
+        myObstacle8 = new component(80, 140, "black", 85, 0);
         obstacles.push(myObstacle8)
         myObstacle9 = new component(80, 140, "rgba(255, 255, 255, 0.4)", 490, 0);
         obstacles.push(myObstacle9)
@@ -67,7 +69,96 @@
         // myObstacle29 = new component(80, 140, "green", 900, 0);
         // obstacles.push(myObstacle29)
 
-        const pass1 = new passanger( 25,25, 'green', 30 ,30)
+        pass1 = new passanger( 25,25, 'green', 38, 100)
+        passangersArray.push(pass1)
+        pass2 = new passanger( 25,25, 'green', 100, 170)
+        passangersArray.push(pass2)
+        pass3 = new passanger( 25, 25, 'green', 270, 250)
+        passangersArray.push(pass3)
+        pass4 = new passanger( 25, 25, 'green', 590, 550)
+        passangersArray.push(pass4)
+        pass5 = new passanger( 25, 25, 'green', 38, 500)
+        passangersArray.push(pass5)
+        // pass6 = new passanger( 25, 25, 'green', 38, 100)
+        // passangersArray.push(pass6)
+        // pass7 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass7)
+        // pass8 = new passanger( 25, 25, 'green', 530, 600)
+        // passangersArray.push(pass8)
+        // pass9 = new passanger( 25, 25, 'green', 678, 180)
+        // passangersArray.push(pass9)
+        // pass10 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass10)
+        // pass11 = new passanger( 25, 25, 'green', 935, 580)
+        // passangersArray.push(pass11)
+        // pass12 = new passanger( 25, 25, 'green', 1020, 580)
+        // passangersArray.push(pass12)
+        // pass12 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass12)
+        // pass13 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass13)
+        // pass14 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass14)
+        // pass15 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass15)
+        // pass16 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass16)
+        // pass17 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass17)
+        // pass18 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass18)
+        // pass19 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass19)
+        // pass20 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass20)
+        // pass21 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass21)
+        // pass22 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass22)
+        // pass23 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass23)
+        // pass24 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass24)
+        // pass25 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass25)
+        // pass26 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass26)
+        // pass27 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass27)
+        // pass28 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass28)
+        // pass29 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass29)
+        // pass30 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass30)
+        // pass31 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass31)
+        // pass32 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass32)
+        // pass33 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass33)
+        // pass34 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass34)
+        // pass35 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass35)
+        // pass36 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass36)
+        // pass37 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass37)
+        // pass38 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass38)
+        // pass39 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass39)
+        // pass40 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass40)
+        // pass41 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass41)
+        // pass42 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass42)
+
+
+
+
 
 
     }
@@ -96,9 +187,11 @@
         this.speedY = 0;
         this.update = function (color) {
             ctx = myGameArea.context;
-            ctx.fillStyle = `color`
+            ctx.beginPath();
+            ctx.fillStyle = color
             ctx.fillRect(this.x, this.y, this.width, this.height);
-            
+            ctx.fill();
+            ctx.closePath()
         };
     }
 
@@ -113,12 +206,10 @@
         this.update = function (color) {
             ctx = myGameArea.context;
             ctx.beginPath();
-            ctx.fillStyle = `rgba(255, 255, 255, 0.4)`
+            ctx.fillStyle = color
             ctx.fillRect(this.x, this.y, this.width, this.height);
-            ctx.closePath()
             ctx.fill();
-            
-            
+            ctx.closePath()
         };
     }
 
@@ -139,7 +230,7 @@
             ctx.translate(-this.x-this.width/2, -this.y-this.height/2);
             ctx.drawImage(car, this.x-20, this.y-40, this.width+40, this.height+90);
             ctx.fillRect(this.x, this.y, this.width, this.height)
-            ctx.fillStyle = "color";
+            ctx.fillStyle = color;
             ctx.restore();
         }
       
@@ -258,26 +349,58 @@
     }
 
     function renderAllObsticals(color) {
-        obstacles.map((ob)=>{
+        obstacles.forEach((ob)=>{
             ob.update(color)
             // debugger
         })
     }
 
+    function checkAllPassangers() {
+
+        passangersArray.forEach((p) => {
+            if(myGamePiece.crashWith(p)) {
+                // add points function here
+                //make the object dissappear
+                if (passangersArray[0]) {
+                    passangersArray.shift()
+                }
+            }
+        })
+
+    }
+
+
+
+    function renderAllPassangers(color){
+        if (passangersArray[0]) {
+            passangersArray[0].update(color)
+        }
+
+        // passangersArray.map((p) => {
+        //     p.update(color)
+        // })
+    }
+
     function updateGameArea() {
         console.log(myGamePiece.speedX, myGamePiece.speedY);
         checkAllObsticals()
+        checkAllPassangers()
         // debugger
         myGameArea.clear();
         console.log(myGamePiece.x, myGamePiece.y);
         
         // stopMove()
         playerMove()
+        renderAllPassangers("white");
         renderAllObsticals("red")
+
+
         // myGamePiece.newPos();
         // myGamePiece.update();
         myGamePiece.drawImage(dir);
-        // pass1.update();
+
+
+
     }
     
 
