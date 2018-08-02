@@ -4,7 +4,8 @@
     var obstacles = []
     var car = new Image();
     car.src = "./car.svg"
-
+    var pass = new Image()
+    pass.src = "./skeleton-idle_15.png"
     var passangersArray = []
     function shuffle (array) {
         var i = 0
@@ -24,17 +25,17 @@
 
     function startGame() {
         myGameArea.start();
-        myGamePiece = new carComponent(25, 25, "rgba(255, 255, 255, 0.4)", 28, 24);
+        myGamePiece = new carComponent(25, 25, "green", 28, 24);
         // myGamePiece
 
-        myObstacle1 = new component(1200, 10, "blue", 0, 0);
-        obstacles.push(myObstacle1) ;
-        myObstacle2 = new component(1200, 10, "blue", 0, 800);
-        obstacles.push(myObstacle2);
-        myObstacle3 = new component(5, 800, "blue", 0, 0);
-        obstacles.push(myObstacle3);
-        myObstacle4 = new component(5, 800, "blue", 1200, 0);
-        obstacles.push(myObstacle4)
+        // myObstacle1 = new component(1200, 10, "blue", 0, 0);
+        // obstacles.push(myObstacle1) ;
+        // myObstacle2 = new component(1200, 10, "blue", 0, 800);
+        // obstacles.push(myObstacle2);
+        // myObstacle3 = new component(5, 800, "blue", 0, 0);
+        // obstacles.push(myObstacle3);
+        // myObstacle4 = new component(5, 800, "blue", 1200, 0);
+        // obstacles.push(myObstacle4)
         myObstacle5 = new component(120, 90, "black", 310, 330);
         obstacles.push(myObstacle5)
         myObstacle6 = new component(120, 90, "black", 714, 330);
@@ -173,6 +174,61 @@
         // passangersArray.push(pass42)
 
         shuffle(passangersArray)
+// sprite
+    function sprite(options) {
+        var that = {},
+        frameIndex = 0,
+        tickCount = 0,
+        ticksPerFrame = options.ticksPerFrame || 0,
+        numberOfFrames = options.numberOfFrames || 1;
+
+        that.context = options.context;
+        that.width = options.width;
+        that.height = options.height;
+        that.image = options.image;
+
+        that.update = function () {
+
+            tickCount += 1;
+
+            if (tickCount > ticksPerFrame) {
+
+                tickCount = 0;
+
+                // If the current frame index is in range
+                if (frameIndex < numberOfFrames - 1) {
+                    // Go to the next frame
+                    frameIndex += 1;
+                } else {
+                    frameIndex = 0;
+                }
+            }
+        };
+
+        that.render = function () {
+
+            // Clear the canvas
+            that.context.clearRect(0, 0, that.width, that.height);
+
+            // Draw the animation
+            that.context.drawImage(
+                that.image,
+                frameIndex * that.width / numberOfFrames,
+                0,
+                that.width / numberOfFrames,
+                that.height,
+                0,
+                0,
+                that.width / numberOfFrames,
+                that.height
+            );
+        };
+
+        return that;
+    }
+
+
+
 
     }
     var direction = ''
@@ -203,6 +259,7 @@
             ctx.beginPath();
             ctx.fillStyle = color
             ctx.fillRect(this.x, this.y, this.width, this.height);
+            ctx.drawImage(pass, this.x-20, this.y-40, this.width+40, this.height+50);
             ctx.fill();
             ctx.closePath()
         };
@@ -235,9 +292,8 @@
         this.speedX = 0;
         this.speedY = 0;
         this.moveAngle = 180
-        this.drawImage = function (deg){
+        this.drawImage = function (deg, color){
             ctx.save();
-            
             ctx.translate(this.x+this.width/2, this.y+this.height/2);
             ctx.rotate(deg*Math.PI/180.0);
             ctx.translate(-this.x-this.width/2, -this.y-this.height/2);
@@ -246,11 +302,7 @@
             ctx.fillStyle = color;
             ctx.restore();
         }
-      
-            // ctx = myGameArea.context;
-            // ctx.rotate(90*Math.PI/180)
-            // ctx.drawImage(car, -this.width / 2, -this.height / 2);
-        
+
         this.update = function () {
             ctx = myGameArea.context;
             // ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
@@ -332,19 +384,6 @@
             // }
         }
     }
-    // function updateMove(direction) {
-    //     // debugger
-    //     stopMove()
-    //     if (direction === 'w') {
-    //         myGamePiece.speedY += 100
-    //         // debugger
-    //     }
-    //     if (direction === 'a') {
-    //         stopMove()
-    //         myGamePiece.speedX = 100
-    //         // debugger
-    //     }
-    // }
 
     // function stopMove() {
     //     myGamePiece.speedX = 0;
@@ -417,51 +456,47 @@
 
         // myGamePiece.newPos();
         // myGamePiece.update();
-        myGamePiece.drawImage(dir);
-
-
-
+        myGamePiece.drawImage(dir, "green");
     }
-    
-
+ 
     const speed = 4
     const slowD = 3
     var keys = [];
     var dir = 0
     function playerMove(e) {
-        // console.log(e)
-        if (keys[87] && !checkAllObsticals()) {
+        // key W
+        if (keys[87] && !checkAllObsticals() && myGamePiece.y > 2) {
             dir = 180
             myGamePiece.y -= speed;
-        }
-        if (keys[87] && checkAllObsticals()) {
+        } 
+        if (keys[87] && checkAllObsticals() && myGamePiece.y > 2 ){
             myGamePiece.y -= speed - slowD ;
             dir = 180
-        }
-        if (keys[83] && !checkAllObsticals()) {
+        } //key S
+        if (keys[83] && !checkAllObsticals() && myGamePiece.y < 800 - myGamePiece.height -2)  {
             dir = 0
             myGamePiece.y += speed ;
         }
-        if (keys[83] && checkAllObsticals()) {
+        if (keys[83] && checkAllObsticals() && myGamePiece.y < 800 - myGamePiece.height -2 ) {
             dir = 0
             myGamePiece.y += speed - slowD;
         }
         if(keys[87] && keys[68]){
             dir = 45
-        }
-        if (keys[65] && !checkAllObsticals()) {
+        } // key A
+        if (keys[65] && !checkAllObsticals() && myGamePiece.x > 2 ){
             dir = 90
             myGamePiece.x -= speed;
         }
-        if (keys[65] && checkAllObsticals()) {
+        if (keys[65] && checkAllObsticals() && myGamePiece.x > 2 ){
             dir = 90
             myGamePiece.x -= speed - slowD;
-        }
-        if (keys[68] && !checkAllObsticals()) {
+        } // key D
+        if (keys[68] && !checkAllObsticals() &&  myGamePiece.x < 1200 - myGamePiece.width - 2){
             dir = 270
             myGamePiece.x += speed;
         }
-        if (keys[68] && (checkAllObsticals())) {
+        if (keys[68] && checkAllObsticals() && myGamePiece.x < 1200 - myGamePiece.width - 2) {
             dir = 270
             myGamePiece.x += speed - slowD;
         }

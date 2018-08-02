@@ -37,8 +37,10 @@ function makeLeaderBoardHTML(userArr){
     })
   
     let sortedBoardObjs = highScores.sort(function (a, b) {
-        return a.highScore > b.highScore;
-    }).reverse()
+        // return a.highScore > b.highScore;
+        return b.highScore - a.highScore
+    })
+    
 
     let boardHTML = sortedBoardObjs.map(function(Obj){
         return `
