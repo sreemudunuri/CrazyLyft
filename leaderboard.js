@@ -1,13 +1,19 @@
 let canvasDiv = document.getElementById('canvas-div')
 
-
 let finalScore = parseInt(document.getElementById('score').innerText)
+let leaderBoard = document.createElement('div')
 
 function renderFinalScore(scoreObj){
-    let scoreDisplayHTML =  `<div class="jumbotron">
-             <h1 class="display-4">You picked up ${scoreObj.points} passengers!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Play Again!</button>
-            </div><br>`
-    canvasDiv.innerHTML = scoreDisplayHTML        
+    // let scoreDisplayHTML =  `<div class="jumbotron">
+    //          <h1 class="display-4">You picked up ${scoreObj.points} passengers!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Play Again!</button>
+    //         </div><br>`
+    // canvasDiv.appendChild = scoreDisplayHTML  
+    
+    leaderBoard.setAttribute('class', 'jumbotron')
+    leaderBoard.innerHTML = `<h1 class="display-4">You picked up ${scoreObj.points} passengers!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Play Again!</button>`
+
+    canvasDiv.appendChild(leaderBoard)
+    
 }
 
 
@@ -34,7 +40,7 @@ function makeLeaderBoardHTML(userArr){
             `
     }).join("")
 
-    canvasDiv.innerHTML += `<div class="jumbotron"><h2>High Scores:</h2>${boardHTML}</div>`
+    leaderBoard.innerHTML += `<hr><h2>High Scores:</h2>${boardHTML}`
 }
 
 function renderLeaderBoard(){
