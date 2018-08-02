@@ -411,12 +411,12 @@
         passangersArray.forEach((p) => {
             if(myGamePiece.crashWith(p)) {
                 // add points function here
-                addPoints()
-                addTime()
-            
+                
                 //make the object disappear
                 var passengersIndex = passangersArray.indexOf(p)
                 passangersArray.splice(passengersIndex, 1)
+                addPoints()
+                addTime()
             }
         })
 
