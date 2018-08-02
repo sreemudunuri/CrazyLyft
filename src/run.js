@@ -1,11 +1,9 @@
-// document.addEventListener("DOMContentLoaded", function (event) {
-
     var myGamePiece;
     var obstacles = []
     var car = new Image();
-    car.src = "./car.svg"
+    car.src = "assets/car.svg"
     var pass = new Image()
-    pass.src = "./skeleton-idle_15.png"
+    pass.src = "assets/skeleton-idle_15.png"
     var passangersArray = []
     function shuffle (array) {
         var i = 0
@@ -20,22 +18,10 @@
         }
     }
 
-
-
-
     function startGame() {
         myGameArea.start();
         myGamePiece = new carComponent(25, 25, "green", 28, 24);
-        // myGamePiece
 
-        // myObstacle1 = new component(1200, 10, "blue", 0, 0);
-        // obstacles.push(myObstacle1) ;
-        // myObstacle2 = new component(1200, 10, "blue", 0, 800);
-        // obstacles.push(myObstacle2);
-        // myObstacle3 = new component(5, 800, "blue", 0, 0);
-        // obstacles.push(myObstacle3);
-        // myObstacle4 = new component(5, 800, "blue", 1200, 0);
-        // obstacles.push(myObstacle4)
         myObstacle5 = new component(120, 90, "black", 310, 330);
         obstacles.push(myObstacle5)
         myObstacle6 = new component(120, 90, "black", 714, 330);
@@ -80,10 +66,6 @@
         obstacles.push(myObstacle26)
         myObstacle27 = new component(80, 180, "green", 980, 630);
         obstacles.push(myObstacle27)
-        // myObstacle28 = new component(80, 140, "green", 900, 0);
-        // obstacles.push(myObstacle28)
-        // myObstacle29 = new component(80, 140, "green", 900, 0);
-        // obstacles.push(myObstacle29)
 
         pass1 = new passanger( 25,25, 'green', 38, 100)
         passangersArray.push(pass1)
@@ -129,51 +111,10 @@
         passangersArray.push(pass21)
         pass22 = new passanger( 25, 25, 'green', 300, 700)
         passangersArray.push(pass22)
-        // pass22 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass22)
-        // pass23 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass23)
-        // pass24 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass24)
-        // pass25 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass25)
-        // pass26 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass26)
-        // pass27 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass27)
-        // pass28 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass28)
-        // pass29 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass29)
-        // pass30 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass30)
-        // pass31 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass31)
-        // pass32 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass32)
-        // pass33 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass33)
-        // pass34 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass34)
-        // pass35 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass35)
-        // pass36 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass36)
-        // pass37 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass37)
-        // pass38 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass38)
-        // pass39 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass39)
-        // pass40 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass40)
-        // pass41 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass41)
-        // pass42 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass42)
 
         shuffle(passangersArray)
-// sprite
+
+        // sprite
     function sprite(options) {
         var that = {},
         frameIndex = 0,
@@ -225,9 +166,6 @@
 
         return that;
     }
-
-
-
 
     }
     var direction = ''
@@ -304,17 +242,9 @@
 
         this.update = function () {
             ctx = myGameArea.context;
-            // ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
-            // ctx.fillRect(this.x, this.y, this.width, this.height);
-            // ctx.translate(canvas.width/2,canvas.height/2);
-            // ctx.rotate(90*Math.PI/180);
             ctx.drawImage(car,this.x-15, this.y-20, this.width+30, this.height+50)
         };
-        // this.newPos = function() {
-        //     this.angle += this.moveAngle 
-        //     this.x += this.speed ;
-        //     this.y -= this.speed ;
-        // };
+
         this.crashWith = function (otherobj) {
             var myleft = this.x;
             var myright = this.x + (this.width);
@@ -324,8 +254,7 @@
             var otherright = otherobj.x + (otherobj.width);
             var othertop = otherobj.y;
             var otherbottom = otherobj.y + (otherobj.height);
-    
-            // var touch = function () {
+
                 if (myleft - 4 < otherright &&
                     myright + 4 > otherleft &&
                     mytop - 4 < otherbottom &&
@@ -333,61 +262,8 @@
                     // console.log('true');
                     return true
                 }
-            // }
-            // if ((myleft <= otherright &&
-            //         // myleft   <=   otherleft &&
-            //         // myright  <=  otherright &&
-            //         myright >= otherleft &&
-            //         mytop > othertop &&
-            //         mytop <= otherbottom &&
-            //         mybottom > othertop &&
-            //         mybottom > otherbottom) //&& touch()
-            // ) {
-            //     console.log('touch top prefent W87');
-            //     direction = 'w'
-            //     // updateMove(direction)
-            //     return true
-            // }
-            // if ((myleft <= otherright &&
-            //         // myleft   >=   otherleft &&
-            //         // myright  <=  otherright &&
-            //         myright >= otherleft &&
-            //         mytop < othertop &&
-            //         mytop < otherbottom &&
-            //         mybottom >= othertop &&
-            //         mybottom < otherbottom) // && touch()
-            // ) {
-            //     console.log('touch bottom, prefent S83');
-            //     return true
-            // }
-            // if ((myleft < otherright &&
-            //         myleft < otherleft &&
-            //         myright < otherright &&
-            //         myright >= otherleft &&
-            //         mytop <= otherbottom &&
-            //         mybottom >= othertop) //&& touch()
-            // ) {
-            //     console.log('touch right, prefent D68');
-            //     return true
-            // }
-            // if ((myleft <= otherright &&
-            //         myleft > otherleft &&
-            //         myright > otherright &&
-            //         myright > otherleft &&
-            //         mytop <= otherbottom &&
-            //         mybottom >= othertop) // && touch()
-            // ) {
-            //     console.log('touch left, prefent A65');
-            //     direction = 'a'
-            //     return true
-            // }
         }
     }
-
-    // function stopMove() {
-    //     myGamePiece.speedX = 0;
-    //     myGamePiece.speedY = 0;
-    // }
 
     function checkAllObsticals() {
         var res = []
@@ -402,13 +278,10 @@
     function renderAllObsticals(color) {
         obstacles.forEach((ob)=>{
             ob.update(color)
-            // debugger
         })
     }
 
     function checkAllPassangers() {
-
-        // passangersArray.forEach(() => {
             if(myGamePiece.crashWith(passangersArray[0])) {
                 // add points function here
                 
@@ -418,8 +291,6 @@
                 addPoints()
                 addTime()
             }
-        // })
-
     }
 
 
@@ -430,11 +301,6 @@
 
             passangersArray[0].update(color)
         }
-
-        // passangersArray.forEach((p) => {
-        //     p.update(color)
-        // })
-
     }
 
     function updateGameArea() {
@@ -444,15 +310,10 @@
         // debugger
         myGameArea.clear();
 
-        
-        // stopMove()
         playerMove()
         renderAllPassangers("white");
         renderAllObsticals("rgba(255, 255, 255, 0.0)")
 
-
-        // myGamePiece.newPos();
-        // myGamePiece.update();
         myGamePiece.drawImage(dir, "green");
     }
  
@@ -508,6 +369,3 @@
     document.addEventListener("keyup", function (e) {
         keys[e.keyCode] = false;
     });
-    // startGame()
-
-// })

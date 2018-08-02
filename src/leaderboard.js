@@ -11,17 +11,11 @@ function addPoints(){
     finalScoreHTML.innerText = finalScore
 }
 
-function renderFinalScore(scoreObj){
-    // let scoreDisplayHTML =  `<div class="jumbotron">
-    //          <h1 class="display-4">You picked up ${scoreObj.points} passengers!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Play Again!</button>
-    //         </div><br>`
-    // canvasDiv.appendChild = scoreDisplayHTML  
-    
+function renderFinalScore(scoreObj){    
     leaderBoard.setAttribute('class', 'jumbotron')
     leaderBoard.innerHTML = `<h1 class="display-4"> Final Score: ${scoreObj.points} points!</h1><button class="btn btn-danger" data-playagain = "playagain" type="submit">Refuel and Drive Again!</button>`
 
-    canvasDiv.appendChild(leaderBoard)
-    
+    canvasDiv.appendChild(leaderBoard)   
 }
 
 
@@ -39,7 +33,6 @@ function makeLeaderBoardHTML(userArr){
     })
   
     let sortedBoardObjs = highScores.sort(function (a, b) {
-        // return a.highScore > b.highScore;
         return b.highScore - a.highScore
     })
     
@@ -49,8 +42,6 @@ function makeLeaderBoardHTML(userArr){
              <p class="lead">${Obj.name}: ${Obj.highScore}   </p>
             `
     }).join("")
-
-    debugger;
     leaderBoard.innerHTML += `<hr><h2>High Scores:</h2>${boardHTML}<hr><button class="btn btn-danger" data-playagain = "playagain" type="submit">Refuel and Drive Again!</button>`
 }
 
