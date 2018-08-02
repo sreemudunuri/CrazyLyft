@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     pass.src = "./skeleton-idle_15.png"
     var passangersArray = []
 
+
     function startGame() {
         myGameArea.start();
         myGamePiece = new carComponent(25, 25, "green", 28, 24);
@@ -94,8 +95,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         passangersArray.push(pass11)
         pass12 = new passanger( 25, 25, 'green', 1020, 580)
         passangersArray.push(pass12)
-        // pass12 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass12)
+        pass13 = new passanger( 25, 25, 'green', 38, 500)
+        passangersArray.push(pass13)
+
         // pass13 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass13)
         // pass14 = new passanger( 25, 25, 'green', 38, 500)
@@ -321,24 +323,24 @@ document.addEventListener("DOMContentLoaded", function (event) {
             // }
         }
     }
-    function updateMove(direction) {
-        // debugger
-        stopMove()
-        if (direction === 'w') {
-            myGamePiece.speedY += 100
-            // debugger
-        }
-        if (direction === 'a') {
-            stopMove()
-            myGamePiece.speedX = 100
-            // debugger
-        }
-    }
+    // function updateMove(direction) {
+    //     // debugger
+    //     stopMove()
+    //     if (direction === 'w') {
+    //         myGamePiece.speedY += 100
+    //         // debugger
+    //     }
+    //     if (direction === 'a') {
+    //         stopMove()
+    //         myGamePiece.speedX = 100
+    //         // debugger
+    //     }
+    // }
 
-    function stopMove() {
-        myGamePiece.speedX = 0;
-        myGamePiece.speedY = 0;
-    }
+    // function stopMove() {
+    //     myGamePiece.speedX = 0;
+    //     myGamePiece.speedY = 0;
+    // }
 
     function checkAllObsticals() {
         var res = []
@@ -350,44 +352,40 @@ document.addEventListener("DOMContentLoaded", function (event) {
         return res.length > 0 ? true : false
     }
 
-    function checkAllPassangers() {
-
-        passangersArray.forEach((p) => {
-            if(myGamePiece.crashWith(p)) {
-                // add points function here
-                //make the object dissappear
-                if (passangersArray[0]) {
-                    passangersArray.shift()
-                }
-            }
-        })
-
-    }
-
     function renderAllObsticals(color) {
-        obstacles.map((ob)=>{
+        obstacles.forEach((ob)=>{
             ob.update(color)
             // debugger
         })
     }
 
+    function checkAllPassangers() {
+
+        passangersArray.forEach((p) => {
+            if(myGamePiece.crashWith(p)) {
+                // add points function here
+                //make the object disappear
+                var passengersIndex = passangersArray.indexOf(p)
+                passangersArray.splice(passengersIndex, 1)
+            }
+        })
+
+    }
+
     function renderAllPassangers(color){
         if (passangersArray[0]) {
+            console.log(passangersArray)
             passangersArray[0].update(color)
         }
-
-        // passangersArray.map((p) => {
-        //     p.update(color)
-        // })
     }
 
     function updateGameArea() {
-        console.log(myGamePiece.speedX, myGamePiece.speedY);
+
         checkAllObsticals()
         checkAllPassangers()
         // debugger
         myGameArea.clear();
-        console.log(myGamePiece.x, myGamePiece.y);
+
         
         // stopMove()
         playerMove()
