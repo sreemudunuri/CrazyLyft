@@ -361,6 +361,7 @@
             if(myGamePiece.crashWith(p)) {
                 // add points function here
                 addPoints()
+                addTime()
                 //make the object dissappear
                 if (passangersArray[0]) {
                     passangersArray.shift()

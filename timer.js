@@ -9,8 +9,8 @@ const countDown = () => {
     timerHTML.innerText = timer--
 }
 
-const add5sec = () => {
-    timerHTML.innerText = (timer +=5) 
+const addTime = () => {
+    timerHTML.innerText = (timer +=3) 
 }
 
 const timerCheck = (countdownFn) => {
