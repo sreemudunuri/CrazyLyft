@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // myObstacle29 = new component(80, 140, "green", 900, 0);
         // obstacles.push(myObstacle29)
 
-        const pass1 = new passanger( 25,25, 'green', 30 ,30)
+        pass1 = new passanger( 25,25, 'green', 30 ,30)
 
 
     }
@@ -96,10 +96,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.speedY = 0;
         this.update = function (color) {
             ctx = myGameArea.context;
-            ctx.fillStyle = `color`
+            ctx.beginPath();
+            ctx.fillStyle = color
             ctx.fillRect(this.x, this.y, this.width, this.height);
-            
-        };
+            ctx.fill();
+            ctx.closePath()
+        }
     }
 
     function component(width, height, color, x, y) {
@@ -113,10 +115,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.update = function (color) {
             ctx = myGameArea.context;
             ctx.beginPath();
-            ctx.fillStyle = `rgba(255, 255, 255, 0.4)`
+            ctx.fillStyle = color
             ctx.fillRect(this.x, this.y, this.width, this.height);
-            ctx.closePath()
             ctx.fill();
+            ctx.closePath()
             
             
         };
@@ -139,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ctx.translate(-this.x-this.width/2, -this.y-this.height/2);
             ctx.drawImage(car, this.x-20, this.y-40, this.width+40, this.height+90);
             ctx.fillRect(this.x, this.y, this.width, this.height)
-            ctx.fillStyle = "color";
+            ctx.fillStyle = color;
             ctx.restore();
         }
       
@@ -273,11 +275,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
         
         // stopMove()
         playerMove()
-        renderAllObsticals("red")
+        renderAllObsticals("rgba(255, 255, 255, 0.4)")
         // myGamePiece.newPos();
         // myGamePiece.update();
         myGamePiece.drawImage(dir);
-        // pass1.update();
+        pass1.update();
     }
     
 
