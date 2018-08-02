@@ -426,20 +426,14 @@
 
 
     function renderAllPassangers(color){
-        // if (passangersArray[0]) {
-        //
-        //     passangersArray[0].update(color)
-        // }
-        // console.log(newRandomPassenger)
-        //
-        // if (newRandomPassenger) {
-        //
-        //     newRandomPassenger.update(color)
-        // }
+        if (passangersArray[0]) {
 
-        passangersArray.forEach((p) => {
-            p.update(color)
-        })
+            passangersArray[0].update(color)
+        }
+
+        // passangersArray.forEach((p) => {
+        //     p.update(color)
+        // })
 
     }
 
