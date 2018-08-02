@@ -82,8 +82,8 @@
         passangersArray.push(pass5)
         pass6 = new passanger( 25, 25, 'green', 38, 100)
         passangersArray.push(pass6)
-        pass7 = new passanger( 25, 25, 'green', 38, 500)
-        passangersArray.push(pass7)
+        // pass7 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass7)
         pass8 = new passanger( 25, 25, 'green', 530, 600)
         passangersArray.push(pass8)
         pass9 = new passanger( 25, 25, 'green', 678, 180)
@@ -94,8 +94,8 @@
         passangersArray.push(pass11)
         pass12 = new passanger( 25, 25, 'green', 1020, 580)
         passangersArray.push(pass12)
-        pass13 = new passanger( 25, 25, 'green', 38, 500)
-        passangersArray.push(pass13)
+        // pass13 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass13)
 
         // pass13 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass13)
@@ -364,10 +364,7 @@
                 // add points function here
                 addPoints()
                 addTime()
-                //make the object dissappear
-                if (passangersArray[0]) {
-                    passangersArray.shift()
-                }
+            
                 //make the object disappear
                 var passengersIndex = passangersArray.indexOf(p)
                 passangersArray.splice(passengersIndex, 1)

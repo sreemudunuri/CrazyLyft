@@ -10,7 +10,7 @@ const countDown = () => {
 }
 
 const addTime = () => {
-    timerHTML.innerText = (timer +=2) 
+    timerHTML.innerText = (timer +=4) 
 }
 
 const timerCheck = (countdownFn) => {
