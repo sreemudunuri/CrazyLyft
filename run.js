@@ -79,20 +79,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
         passangersArray.push(pass4)
         pass5 = new passanger( 25, 25, 'green', 38, 500)
         passangersArray.push(pass5)
-        pass6 = new passanger( 25, 25, 'green', 38, 100)
-        passangersArray.push(pass6)
-        pass7 = new passanger( 25, 25, 'green', 38, 500)
-        passangersArray.push(pass7)
-        pass8 = new passanger( 25, 25, 'green', 530, 600)
-        passangersArray.push(pass8)
-        pass9 = new passanger( 25, 25, 'green', 678, 180)
-        passangersArray.push(pass9)
-        pass10 = new passanger( 25, 25, 'green', 38, 500)
-        passangersArray.push(pass10)
-        pass11 = new passanger( 25, 25, 'green', 935, 580)
-        passangersArray.push(pass11)
-        pass12 = new passanger( 25, 25, 'green', 1020, 580)
-        passangersArray.push(pass12)
+        // pass6 = new passanger( 25, 25, 'green', 38, 100)
+        // passangersArray.push(pass6)
+        // pass7 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass7)
+        // pass8 = new passanger( 25, 25, 'green', 530, 600)
+        // passangersArray.push(pass8)
+        // pass9 = new passanger( 25, 25, 'green', 678, 180)
+        // passangersArray.push(pass9)
+        // pass10 = new passanger( 25, 25, 'green', 38, 500)
+        // passangersArray.push(pass10)
+        // pass11 = new passanger( 25, 25, 'green', 935, 580)
+        // passangersArray.push(pass11)
+        // pass12 = new passanger( 25, 25, 'green', 1020, 580)
+        // passangersArray.push(pass12)
         // pass12 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass12)
         // pass13 = new passanger( 25, 25, 'green', 38, 500)
@@ -348,6 +348,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         return res.length > 0 ? true : false
     }
 
+    function renderAllObsticals(color) {
+        obstacles.forEach((ob)=>{
+            ob.update(color)
+            // debugger
+        })
+    }
+
     function checkAllPassangers() {
 
         passangersArray.forEach((p) => {
@@ -362,12 +369,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     }
 
-    function renderAllObsticals(color) {
-        obstacles.map((ob)=>{
-            ob.update(color)
-            // debugger
-        })
-    }
+
 
     function renderAllPassangers(color){
         if (passangersArray[0]) {
