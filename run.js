@@ -394,7 +394,7 @@
         // stopMove()
         playerMove()
         renderAllPassangers("white");
-        renderAllObsticals("red")
+        renderAllObsticals("rgba(255, 255, 255, 0.0)")
 
 
         // myGamePiece.newPos();
