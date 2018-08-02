@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
        
         userAdapter.createUser(event.currentTarget[0].value)
         .then(res => {renderUserName(res)})
-        .then(setInterval(run, 10))
+        .then(startGame)
         .then(manageTheClock)
 
     })

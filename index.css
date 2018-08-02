@@ -13,7 +13,7 @@ h1, h2, h3, p {
     margin-left: .75%; 
 }
 
-#myCanvas, #canvas-div {
+#canvas-div {
     float: left;
     background: #eee; 
     display: block; 
@@ -21,6 +21,22 @@ h1, h2, h3, p {
     /* padding-left: 15px; */
     margin-left: 5%; 
 }
+
+canvas {
+    background: #e5e5e5;
+    padding: 20px;
+    display: block;
+    margin: 0 auto;
+}
+
+#myCanvas{
+    background-image: url("./city-v1r.jpg");
+}
+
+.car{
+    animation: shakes 1s linear infinite 
+    
+} 
 
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
@@ -9054,3 +9070,4 @@ a.text-dark:hover, a.text-dark:focus {
 /*# sourceMappingURL=bootstrap.css.map */
 
     
+
