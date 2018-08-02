@@ -2,6 +2,8 @@ let canvasDiv = document.getElementById('canvas-div')
 
 let finalScoreHTML = document.getElementById('score')
 let finalScore = parseInt(document.getElementById('score').innerText)
+let navbar = document.getElementById('navbar')
+let highScoreButton = document.getElementById('highscore-button')
 let leaderBoard = document.createElement('div')
 
 function addPoints(){
@@ -48,7 +50,8 @@ function makeLeaderBoardHTML(userArr){
             `
     }).join("")
 
-    leaderBoard.innerHTML += `<hr><h2>High Scores:</h2>${boardHTML}`
+    debugger;
+    leaderBoard.innerHTML += `<hr><h2>High Scores:</h2>${boardHTML}<hr><button class="btn btn-danger" data-playagain = "playagain" type="submit">Refuel and Drive Again!</button>`
 }
 
 function renderLeaderBoard(){
@@ -65,3 +68,9 @@ function postAndRenderFinalScore(){
         renderFinalScore(res)
     }).then(renderLeaderBoard)
 }
+
+highScoreButton.addEventListener('click', function(event){
+    canvasDiv.appendChild(leaderBoard)
+    leaderBoard.setAttribute('class', 'jumbotron')
+    renderLeaderBoard()
+})
