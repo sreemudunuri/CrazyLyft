@@ -1,7 +1,13 @@
 let canvasDiv = document.getElementById('canvas-div')
 
+let finalScoreHTML = document.getElementById('score')
 let finalScore = parseInt(document.getElementById('score').innerText)
 let leaderBoard = document.createElement('div')
+
+function addPoints(){
+    finalScore = finalScore + 5
+    finalScoreHTML.innerText = finalScore
+}
 
 function renderFinalScore(scoreObj){
     // let scoreDisplayHTML =  `<div class="jumbotron">
