@@ -360,6 +360,7 @@
         passangersArray.forEach((p) => {
             if(myGamePiece.crashWith(p)) {
                 // add points function here
+                addPoints()
                 //make the object dissappear
                 if (passangersArray[0]) {
                     passangersArray.shift()
