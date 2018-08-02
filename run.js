@@ -408,12 +408,12 @@
 
     function checkAllPassangers() {
 
-        passangersArray.forEach((p) => {
-            if(myGamePiece.crashWith(p)) {
+        passangersArray.forEach(() => {
+            if(myGamePiece.crashWith(passangersArray[0])) {
                 // add points function here
                 
                 //make the object disappear
-                var passengersIndex = passangersArray.indexOf(p)
+                var passengersIndex = passangersArray.indexOf(passangersArray[0])
                 passangersArray.splice(passengersIndex, 1)
                 addPoints()
                 addTime()
