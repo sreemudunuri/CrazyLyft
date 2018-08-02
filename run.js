@@ -97,8 +97,8 @@
         passangersArray.push(pass5)
         pass6 = new passanger( 25, 25, 'green', 38, 100)
         passangersArray.push(pass6)
-        // pass7 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass7)
+        pass7 = new passanger( 25, 25, 'green', 38, 500)
+        passangersArray.push(pass7)
         pass8 = new passanger( 25, 25, 'green', 530, 600)
         passangersArray.push(pass8)
         pass9 = new passanger( 25, 25, 'green', 678, 180)
@@ -109,27 +109,26 @@
         passangersArray.push(pass11)
         pass12 = new passanger( 25, 25, 'green', 1020, 580)
         passangersArray.push(pass12)
-        // pass13 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass13)
-
-        // pass13 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass13)
-        // pass14 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass14)
-        // pass15 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass15)
-        // pass16 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass16)
-        // pass17 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass17)
-        // pass18 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass18)
-        // pass19 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass19)
-        // pass20 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass20)
-        // pass21 = new passanger( 25, 25, 'green', 38, 500)
-        // passangersArray.push(pass21)
+        pass13 = new passanger( 25, 25, 'green', 530, 180)
+        passangersArray.push(pass13)
+        pass14 = new passanger( 25, 25, 'green', 1000, 145)
+        passangersArray.push(pass14)
+        pass15 = new passanger( 25, 25, 'green', 300, 435)
+        passangersArray.push(pass15)
+        pass16 = new passanger( 25, 25, 'green',300, 300)
+        passangersArray.push(pass16)
+        pass17 = new passanger( 25, 25, 'green', 500, 300)
+        passangersArray.push(pass17)
+        pass18 = new passanger( 25, 25, 'green', 900, 300)
+        passangersArray.push(pass18)
+        pass19 = new passanger( 25, 25, 'green', 1090, 300)
+        passangersArray.push(pass19)
+        pass20 = new passanger( 25, 25, 'green', 700, 300)
+        passangersArray.push(pass20)
+        pass21 = new passanger( 25, 25, 'green', 38, 720)
+        passangersArray.push(pass21)
+        pass22 = new passanger( 25, 25, 'green', 300, 700)
+        passangersArray.push(pass22)
         // pass22 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass22)
         // pass23 = new passanger( 25, 25, 'green', 38, 500)
@@ -427,16 +426,20 @@
 
 
     function renderAllPassangers(color){
-        if (passangersArray[0]) {
-
-            passangersArray[0].update(color)
-        }
+        // if (passangersArray[0]) {
+        //
+        //     passangersArray[0].update(color)
+        // }
         // console.log(newRandomPassenger)
         //
         // if (newRandomPassenger) {
         //
         //     newRandomPassenger.update(color)
         // }
+
+        passangersArray.forEach((p) => {
+            p.update(color)
+        })
 
     }
 
