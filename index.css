@@ -32,7 +32,7 @@ canvas {
 }
 
 #myCanvas{
-    background-image: url("./city-v1r.jpg");
+    background-image: url("./city-v4.jpg");
 }
 
 .car{
@@ -4933,7 +4933,8 @@ input[type="button"].btn-block {
   margin: auto;
   width: 60%;
   height: 100%;
-  overflow-y:scroll; 
+  overflow-y:scroll;
+   
 }
 
 @media (min-width: 576px) {
