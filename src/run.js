@@ -107,10 +107,7 @@
     newPassImage = new Image();
 
     canvas = document.getElementById("myCanvas");
-    // canvas.width = 100;
-    // canvas.height = 100;
-
-
+    
     // Create sprite
     
     newPassImage.src = "assets/coin-sprite-animation_v2.png";
@@ -307,16 +304,6 @@
                 addTime(); 
             }
     }
-
-    // function checkAllNewPassangers() {
-    //     // debugger
-    //     if(myGamePiece.crashWith(newPassangersArray[0])) {
-    //         console.log('test');
-            
-    //         var newPassengersIndex = newPassangersArray.indexOf(newPassangersArray[0])
-    //         newPassangersArray.splice(newPassengersIndex, 1)
-    //         }
-    // }
 
     function updateAllNewPassangers(){
         if (newPassangersArray[0]) {
