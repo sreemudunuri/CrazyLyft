@@ -18,6 +18,13 @@ const timerCheck = (countdownFn) => {
         clearInterval(countdownFn)
         timerHTML.innerHTML = `<h3>Time's Up!</h3>`
         clearInterval(clockMonitor)
+        //stop game
+        myGameArea.stop()
+        // stop zombie sound
+        backgroundSound.stop()
+        //car sound
+        carSound.stop()
+
         postAndRenderFinalScore()
     }
 }
