@@ -22,6 +22,9 @@ const timerCheck = (countdownFn) => {
         myGameArea.stop()
         // stop zombie sound
         backgroundSound.stop()
+        //car sound
+        carSound.stop()
+
         postAndRenderFinalScore()
     }
 }

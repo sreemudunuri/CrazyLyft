@@ -56,8 +56,8 @@
     function startGame() {
 
         backgroundSound = new sound("Call of Duty Zombies Sound Effects.mp3");
-        carSound = new sound("");
-        zombieKillSound = new sound("")
+        carSound = new sound("ftypeSound.mp3");
+        // zombieKillSound = new sound("")
 
 
         myGameArea.start();
@@ -154,7 +154,10 @@
             // this.canvas.height = 800;
             this.context = this.canvas.getContext("2d");
             canvasDiv.appendChild(this.canvas, document.body.childNodes[0]);
+
             backgroundSound.play()
+            carSound.play()
+
             this.interval = setInterval(updateGameArea, 20);
         },
         clear: function () {
