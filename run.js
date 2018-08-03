@@ -2,6 +2,13 @@
 
     var myGamePiece;
     var obstacles = []
+
+    //sound
+    var backgroundSound;
+    var carSound;
+    var zombieKillSound;
+
+
     var car = new Image();
     car.src = "./car.svg"
     var pass = new Image()
@@ -23,6 +30,21 @@
         }
     }
 
+        function sound(src) {
+            this.sound = document.createElement("audio");
+            this.sound.src = src;
+            this.sound.setAttribute("preload", "auto");
+            this.sound.setAttribute("controls", "none");
+            this.sound.style.display = "none";
+            document.body.appendChild(this.sound);
+            this.play = function(){
+                this.sound.play();
+            }
+            this.stop = function(){
+                this.sound.pause();
+            }
+        }
+
 
 
 
@@ -32,6 +54,12 @@
     
     
     function startGame() {
+
+        backgroundSound = new sound("Call of Duty Zombies Sound Effects.mp3");
+        carSound = new sound("");
+        zombieKillSound = new sound("")
+
+
         myGameArea.start();
         myGamePiece = new carComponent(25, 25, "green", 28, 24);
         // myGamePiece
@@ -126,6 +154,7 @@
             // this.canvas.height = 800;
             this.context = this.canvas.getContext("2d");
             canvasDiv.appendChild(this.canvas, document.body.childNodes[0]);
+            backgroundSound.play()
             this.interval = setInterval(updateGameArea, 20);
         },
         clear: function () {
