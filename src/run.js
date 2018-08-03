@@ -113,7 +113,7 @@
 
     // Create sprite
     
-    newPassImage.src = "./coin-sprite-animation_v2.png";
+    newPassImage.src = "assets/coin-sprite-animation_v2.png";
 
 
     var direction = ''
