@@ -53,8 +53,8 @@
     
     function startGame() {
 
-        backgroundSound = new sound("Call of Duty Zombies Sound Effects.mp3");
-        carSound = new sound("ftypeSound.mp3");
+        backgroundSound = new sound("assets/Call of Duty Zombies Sound Effects.mp3");
+        carSound = new sound("assets/ftypeSound.mp3");
         // zombieKillSound = new sound("")
 
 
