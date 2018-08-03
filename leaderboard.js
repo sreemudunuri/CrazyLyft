@@ -50,7 +50,6 @@ function makeLeaderBoardHTML(userArr){
             `
     }).join("")
 
-    debugger;
     leaderBoard.innerHTML += `<hr><h2>High Scores:</h2>${boardHTML}<hr><button class="btn btn-danger" data-playagain = "playagain" type="submit">Refuel and Drive Again!</button>`
 }
 
