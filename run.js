@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-
+    
     var myGamePiece;
     var obstacles = []
     var car = new Image();
@@ -7,8 +7,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     var pass = new Image()
     pass.src = "./skeleton-idle_15.png"
     var passangersArray = []
-
-
+    var newPassangersArray = []
+    var coin, coinImage
+    var passPos = []
+    
+    
     function startGame() {
         myGameArea.start();
         myGamePiece = new carComponent(25, 25, "green", 28, 24);
@@ -70,34 +73,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // obstacles.push(myObstacle28)
         // myObstacle29 = new component(80, 140, "green", 900, 0);
         // obstacles.push(myObstacle29)
-
-        pass1 = new passanger( 25,25, 'green', 38, 100)
+        
+        passPswos = [[38,100],[100,170],[270,250],[590,550],[38,500],[38,100],[38,500],[530,600],[678,180],[38,500],[935,580],[1020,580],[38,500]]
+        pass1 = new passanger( 25,25, 'green', passPos[0][0],passPos[0][1])
         passangersArray.push(pass1)
-        pass2 = new passanger( 25,25, 'green', 100, 170)
+        pass2 = new passanger( 25,25, 'green', passPos[1][0],passPos[1][1])
         passangersArray.push(pass2)
-        pass3 = new passanger( 25, 25, 'green', 270, 250)
+        pass3 = new passanger( 25, 25, 'green', passPos[2][0],passPos[2][1])
         passangersArray.push(pass3)
-        pass4 = new passanger( 25, 25, 'green', 590, 550)
+        pass4 = new passanger( 25, 25, 'green', passPos[3][0],passPos[3][1])
         passangersArray.push(pass4)
-        pass5 = new passanger( 25, 25, 'green', 38, 500)
+        pass5 = new passanger( 25, 25, 'green', passPos[4][0],passPos[4][1])
         passangersArray.push(pass5)
-        pass6 = new passanger( 25, 25, 'green', 38, 100)
+        pass6 = new passanger( 25, 25, 'green', passPos[5][0],passPos[5][1])
         passangersArray.push(pass6)
-        pass7 = new passanger( 25, 25, 'green', 38, 500)
+        pass7 = new passanger( 25, 25, 'green', passPos[6][0],passPos[6][1])
         passangersArray.push(pass7)
-        pass8 = new passanger( 25, 25, 'green', 530, 600)
+        pass8 = new passanger( 25, 25, 'green', passPos[7][0],passPos[7][1])
         passangersArray.push(pass8)
-        pass9 = new passanger( 25, 25, 'green', 678, 180)
+        pass9 = new passanger( 25, 25, 'green', passPos[8][0],passPos[8][1])
         passangersArray.push(pass9)
-        pass10 = new passanger( 25, 25, 'green', 38, 500)
+        pass10 = new passanger( 25, 25, 'green', passPos[9][0],passPos[9][1])
         passangersArray.push(pass10)
-        pass11 = new passanger( 25, 25, 'green', 935, 580)
+        pass11 = new passanger( 25, 25, 'green', passPos[10][0],passPos[10][1])
         passangersArray.push(pass11)
-        pass12 = new passanger( 25, 25, 'green', 1020, 580)
+        pass12 = new passanger( 25, 25, 'green',passPos[11][0],passPos[11][1])
         passangersArray.push(pass12)
-        pass13 = new passanger( 25, 25, 'green', 38, 500)
+        pass13 = new passanger( 25, 25, 'green', passPos[12][0],passPos[12][1])
         passangersArray.push(pass13)
-
         // pass13 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass13)
         // pass14 = new passanger( 25, 25, 'green', 38, 500)
@@ -158,64 +161,32 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // passangersArray.push(pass41)
         // pass42 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass42)
+        newPass1 = sprite({ x:430, y: 500, context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 2
+        });
+        newPassangersArray.push(newPass1)
+        newPass2 = sprite({x:100, y: 100, context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4
+        });
 
-// sprite
-    function sprite(options) {
-        var that = {},
-        frameIndex = 0,
-        tickCount = 0,
-        ticksPerFrame = options.ticksPerFrame || 0,
-        numberOfFrames = options.numberOfFrames || 1;
-
-        that.context = options.context;
-        that.width = options.width;
-        that.height = options.height;
-        that.image = options.image;
-
-        that.update = function () {
-
-            tickCount += 1;
-
-            if (tickCount > ticksPerFrame) {
-
-                tickCount = 0;
-
-                // If the current frame index is in range
-                if (frameIndex < numberOfFrames - 1) {
-                    // Go to the next frame
-                    frameIndex += 1;
-                } else {
-                    frameIndex = 0;
-                }
-            }
-        };
-
-        that.render = function () {
-
-            // Clear the canvas
-            that.context.clearRect(0, 0, that.width, that.height);
-
-            // Draw the animation
-            that.context.drawImage(
-                that.image,
-                frameIndex * that.width / numberOfFrames,
-                0,
-                that.width / numberOfFrames,
-                that.height,
-                0,
-                0,
-                that.width / numberOfFrames,
-                that.height
-            );
-        };
-
-        return that;
+        newPassangersArray.push(newPass2)
+        newPass3 = sprite({ x:900, y: 700,context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4
+        });
+  
+        newPassangersArray.push(newPass3)
     }
 
+    // Create sprite sheet
+    newPassImage = new Image();
+
+    canvas = document.getElementById("myCanvas");
+    // canvas.width = 100;
+    // canvas.height = 100;
 
 
+    // Create sprite
+    
+    newPassImage.src = "./coin-sprite-animation_v1.png";
 
-    }
+
     var direction = ''
     var myGameArea = {
         canvas: document.getElementById("myCanvas"),
@@ -231,6 +202,64 @@ document.addEventListener("DOMContentLoaded", function (event) {
         },
     }
 
+        // sprite
+        function sprite(options) {
+            var that = {},
+            frameIndex = 0,
+            tickCount = 0,
+            ticksPerFrame = options.ticksPerFrame || 0,
+            numberOfFrames = options.numberOfFrames || 1;
+    
+            that.context = options.context;
+            that.width = options.width;
+            that.height = options.height;
+            that.image = options.image;
+            that.x = options.x;
+            that.y = options.y
+    
+            that.update = function () {
+    
+                tickCount += 1;
+    
+                if (tickCount > ticksPerFrame) {
+    
+                    tickCount = 0;
+    
+                    // If the current frame index is in range
+                    if (frameIndex < numberOfFrames - 1) {
+                        // Go to the next frame
+                        frameIndex += 1;
+                    } else {
+                        frameIndex = 0;
+                    }
+                }
+            };
+    
+            that.render = function () {
+    
+                // Clear the canvas
+                that.context.clearRect(0, 0, that.width, that.height);
+    
+                // Draw the animation
+                that.context.fillRect(that.x,that.y,100,100);
+                that.context.fillStyle = "#FF0000";
+                that.context.drawImage(
+                    that.image,
+                    frameIndex * that.width / numberOfFrames,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height,
+                    that.x,
+                    that.y,
+                    (that.width / numberOfFrames)/1,
+                    that.height/1
+                );
+            };
+    
+            return that;
+        }
+    
+       
     function passanger(width, height, color, x, y) {
         
         this.width = width;
@@ -258,10 +287,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.y = y;
         this.speedX = 0;
         this.speedY = 0;
-        this.update = function (color) {
+        this.update = function () {
             ctx = myGameArea.context;
             ctx.beginPath();
-            ctx.fillStyle = color
+            ctx.fillStyle = "rgba(255, 255, 255, 0.2)"
             ctx.fillRect(this.x, this.y, this.width, this.height);
             ctx.fill();
             ctx.closePath()
@@ -284,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             ctx.translate(-this.x-this.width/2, -this.y-this.height/2);
             ctx.drawImage(car, this.x-20, this.y-40, this.width+40, this.height+90);
             ctx.fillRect(this.x, this.y, this.width, this.height)
-            ctx.fillStyle = color;
+            ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
             ctx.restore();
         }
 
@@ -312,61 +341,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
             var otherbottom = otherobj.y + (otherobj.height);
     
             // var touch = function () {
-                if (myleft - 4 < otherright &&
-                    myright + 4 > otherleft &&
-                    mytop - 4 < otherbottom &&
-                    mybottom + 4 > othertop) {
-                    // console.log('true');
-                    return true
-                }
-            // }
-            // if ((myleft <= otherright &&
-            //         // myleft   <=   otherleft &&
-            //         // myright  <=  otherright &&
-            //         myright >= otherleft &&
-            //         mytop > othertop &&
-            //         mytop <= otherbottom &&
-            //         mybottom > othertop &&
-            //         mybottom > otherbottom) //&& touch()
-            // ) {
-            //     console.log('touch top prefent W87');
-            //     direction = 'w'
-            //     // updateMove(direction)
-            //     return true
-            // }
-            // if ((myleft <= otherright &&
-            //         // myleft   >=   otherleft &&
-            //         // myright  <=  otherright &&
-            //         myright >= otherleft &&
-            //         mytop < othertop &&
-            //         mytop < otherbottom &&
-            //         mybottom >= othertop &&
-            //         mybottom < otherbottom) // && touch()
-            // ) {
-            //     console.log('touch bottom, prefent S83');
-            //     return true
-            // }
-            // if ((myleft < otherright &&
-            //         myleft < otherleft &&
-            //         myright < otherright &&
-            //         myright >= otherleft &&
-            //         mytop <= otherbottom &&
-            //         mybottom >= othertop) //&& touch()
-            // ) {
-            //     console.log('touch right, prefent D68');
-            //     return true
-            // }
-            // if ((myleft <= otherright &&
-            //         myleft > otherleft &&
-            //         myright > otherright &&
-            //         myright > otherleft &&
-            //         mytop <= otherbottom &&
-            //         mybottom >= othertop) // && touch()
-            // ) {
-            //     console.log('touch left, prefent A65');
-            //     direction = 'a'
-            //     return true
-            // }
+            if (myleft - 4 < otherright &&
+                myright + 4 > otherleft &&
+                mytop - 4 < otherbottom &&
+                mybottom + 4 > othertop) {
+                // console.log('true');
+                return true
+            }
+
         }
     }
 
@@ -393,15 +375,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function checkAllPassangers() {
-
-        passangersArray.forEach((p) => {
-            if(myGamePiece.crashWith(p)) {
+            if(myGamePiece.crashWith(passangersArray[0])) {
                 // add points function here
                 //make the object disappear
-                var passengersIndex = passangersArray.indexOf(p)
-                passangersArray.splice(passengersIndex, 1)
+                // var passengersIndex = passangersArray.indexOf(p)
+                // passangersArray.splice(passengersIndex, 1)
+                console.log('hello');
+                
             }
-        })
 
     }
 
@@ -412,20 +393,43 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
-    function updateGameArea() {
-
-        checkAllObsticals()
-        checkAllPassangers()
+    function checkAllNewPassangers() {
         // debugger
+        if(myGamePiece.crashWith(newPassangersArray[0])) {
+            console.log('test');
+            
+            var newPassengersIndex = newPassangersArray.indexOf(newPassangersArray[0])
+            newPassangersArray.splice(newPassengersIndex, 1)
+            }
+    }
+
+    function updateAllNewPassangers(){
+        if (newPassangersArray[0]) {
+            console.log(newPassangersArray)
+            newPassangersArray[0].update()
+        }
+    }
+
+    function renderAllNewPassangers(){
+        if (newPassangersArray[0]) {
+            console.log(newPassangersArray)
+            newPassangersArray[0].render()
+        }
+    }
+
+    function updateGameArea() {
         myGameArea.clear();
+        checkAllObsticals()
+        // checkAllPassangers()
+        newPassangersArray[0].render()
+        newPassangersArray[0].update()
+        checkAllNewPassangers()
 
-        
-        // stopMove()
         playerMove()
-        renderAllPassangers("white");
-        renderAllObsticals("red")
-
-
+        // updateAllNewPassangers()
+        // renderAllNewPassangers();
+        // renderAllPassangers();
+        renderAllObsticals("rgba(255, 255, 255, 0.4)")
         // myGamePiece.newPos();
         // myGamePiece.update();
         myGamePiece.drawImage(dir, "green");
