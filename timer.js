@@ -18,6 +18,7 @@ const timerCheck = (countdownFn) => {
         clearInterval(countdownFn)
         timerHTML.innerHTML = `<h3>Time's Up!</h3>`
         clearInterval(clockMonitor)
+        myGameArea.stop()
         postAndRenderFinalScore()
     }
 }
