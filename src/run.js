@@ -5,22 +5,34 @@
     var pass = new Image()
     pass.src = "assets/skeleton-idle_15.png"
     var passangersArray = []
-    function shuffle (array) {
+    function shuffle (array1, array2) {
         var i = 0
             , j = 0
-            , temp = null
-
-        for (i = array.length - 1; i > 0; i -= 1) {
+            , temp1 = null
+            , temp2 = null
+        for (i = array1.length - 1; i > 0; i -= 1) {
             j = Math.floor(Math.random() * (i + 1))
-            temp = array[i]
-            array[i] = array[j]
-            array[j] = temp
+            temp1 = array1[i]
+            temp2 = array2[i]
+            array1[i] = array1[j]
+            array2[i] = array2[j]
+            array1[j] = temp1
+            array2[j] = temp2
         }
     }
 
+
+
+
+    var newPassangersArray = []
+    var coin, coinImage
+    var passPos = []
+    
+    
     function startGame() {
         myGameArea.start();
         myGamePiece = new carComponent(25, 25, "green", 28, 24);
+        // myGamePiece
 
         myObstacle5 = new component(120, 90, "black", 310, 330);
         obstacles.push(myObstacle5)
@@ -66,108 +78,44 @@
         obstacles.push(myObstacle26)
         myObstacle27 = new component(80, 180, "green", 980, 630);
         obstacles.push(myObstacle27)
+        
+        newPassangersArray.push(sprite({ x:30 ,y:100 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:100 ,y:170 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:270 ,y:250 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:590 ,y:550 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:38 ,y:500 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:38 ,y:100 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:38 ,y:500 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:530 ,y:600 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:678 ,y:180 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:38 ,y:500 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:935 ,y:580 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:1020 ,y:580 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:530 ,y:180 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:1000 ,y:145 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:300 ,y:435 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:300 ,y:300 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:500 ,y:300 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:900 ,y:300 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:1090 ,y: 300, context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:38 ,y:720 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
+        newPassangersArray.push(sprite({ x:300 ,y:700 , context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4}));
 
-        pass1 = new passanger( 25,25, 'green', 38, 100)
-        passangersArray.push(pass1)
-        pass2 = new passanger( 25,25, 'green', 100, 170)
-        passangersArray.push(pass2)
-        pass3 = new passanger( 25, 25, 'green', 270, 250)
-        passangersArray.push(pass3)
-        pass4 = new passanger( 25, 25, 'green', 590, 550)
-        passangersArray.push(pass4)
-        pass5 = new passanger( 25, 25, 'green', 38, 500)
-        passangersArray.push(pass5)
-        pass6 = new passanger( 25, 25, 'green', 38, 100)
-        passangersArray.push(pass6)
-        pass7 = new passanger( 25, 25, 'green', 38, 500)
-        passangersArray.push(pass7)
-        pass8 = new passanger( 25, 25, 'green', 530, 600)
-        passangersArray.push(pass8)
-        pass9 = new passanger( 25, 25, 'green', 678, 180)
-        passangersArray.push(pass9)
-        pass10 = new passanger( 25, 25, 'green', 38, 500)
-        passangersArray.push(pass10)
-        pass11 = new passanger( 25, 25, 'green', 935, 580)
-        passangersArray.push(pass11)
-        pass12 = new passanger( 25, 25, 'green', 1020, 580)
-        passangersArray.push(pass12)
-        pass13 = new passanger( 25, 25, 'green', 530, 180)
-        passangersArray.push(pass13)
-        pass14 = new passanger( 25, 25, 'green', 1000, 145)
-        passangersArray.push(pass14)
-        pass15 = new passanger( 25, 25, 'green', 300, 435)
-        passangersArray.push(pass15)
-        pass16 = new passanger( 25, 25, 'green',300, 300)
-        passangersArray.push(pass16)
-        pass17 = new passanger( 25, 25, 'green', 500, 300)
-        passangersArray.push(pass17)
-        pass18 = new passanger( 25, 25, 'green', 900, 300)
-        passangersArray.push(pass18)
-        pass19 = new passanger( 25, 25, 'green', 1090, 300)
-        passangersArray.push(pass19)
-        pass20 = new passanger( 25, 25, 'green', 700, 300)
-        passangersArray.push(pass20)
-        pass21 = new passanger( 25, 25, 'green', 38, 720)
-        passangersArray.push(pass21)
-        pass22 = new passanger( 25, 25, 'green', 300, 700)
-        passangersArray.push(pass22)
+        shuffle(newPassangersArray, passangersArray)
+    }   
+    // Create sprite sheet
+    newPassImage = new Image();
 
-        shuffle(passangersArray)
+    canvas = document.getElementById("myCanvas");
+    // canvas.width = 100;
+    // canvas.height = 100;
 
-        // sprite
-    function sprite(options) {
-        var that = {},
-        frameIndex = 0,
-        tickCount = 0,
-        ticksPerFrame = options.ticksPerFrame || 0,
-        numberOfFrames = options.numberOfFrames || 1;
 
-        that.context = options.context;
-        that.width = options.width;
-        that.height = options.height;
-        that.image = options.image;
+    // Create sprite
+    
+    newPassImage.src = "./coin-sprite-animation_v2.png";
 
-        that.update = function () {
 
-            tickCount += 1;
-
-            if (tickCount > ticksPerFrame) {
-
-                tickCount = 0;
-
-                // If the current frame index is in range
-                if (frameIndex < numberOfFrames - 1) {
-                    // Go to the next frame
-                    frameIndex += 1;
-                } else {
-                    frameIndex = 0;
-                }
-            }
-        };
-
-        that.render = function () {
-
-            // Clear the canvas
-            that.context.clearRect(0, 0, that.width, that.height);
-
-            // Draw the animation
-            that.context.drawImage(
-                that.image,
-                frameIndex * that.width / numberOfFrames,
-                0,
-                that.width / numberOfFrames,
-                that.height,
-                0,
-                0,
-                that.width / numberOfFrames,
-                that.height
-            );
-        };
-
-        return that;
-    }
-
-    }
     var direction = ''
     var myGameArea = {
         canvas: document.getElementById("myCanvas"),
@@ -183,6 +131,65 @@
         },
     }
 
+        // sprite
+        function sprite(options) {
+            var that = {},
+            frameIndex = 0,
+            tickCount = 0,
+            ticksPerFrame = options.ticksPerFrame || 0,
+            numberOfFrames = options.numberOfFrames || 1;
+    
+            that.context = options.context;
+            that.width = options.width;
+            that.height = options.height;
+            that.image = options.image;
+            that.x = options.x;
+            that.y = options.y
+            passangersArray.push(new passanger( 30,30, 'green', that.x, that.y))
+            // debugger
+            that.update = function () {
+    
+                tickCount += 1;
+    
+                if (tickCount > ticksPerFrame) {
+    
+                    tickCount = 0;
+    
+                    // If the current frame index is in range
+                    if (frameIndex < numberOfFrames - 1) {
+                        // Go to the next frame
+                        frameIndex += 1;
+                    } else {
+                        frameIndex = 0;
+                    }
+                }
+            };
+    
+            that.render = function () {
+    
+                // Clear the canvas
+                that.context.clearRect(0, 0, that.width, that.height);
+    
+                // Draw the animation
+                // that.context.fillRect(that.x,that.y,100,100);
+                // that.context.fillStyle = "#FF0000";
+                that.context.drawImage(
+                    that.image,
+                    frameIndex * that.width / numberOfFrames,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height,
+                    that.x - 30,
+                    that.y -50,
+                    (that.width / numberOfFrames)/1,
+                    that.height/1
+                );
+            };
+    
+            return that;
+        }
+    
+       
     function passanger(width, height, color, x, y) {
         
         this.width = width;
@@ -194,9 +201,9 @@
         this.update = function (color) {
             ctx = myGameArea.context;
             ctx.beginPath();
-            ctx.fillStyle = color
+            ctx.fillStyle = "rgba(255, 255, 255, 0.0)"
             ctx.fillRect(this.x, this.y, this.width, this.height);
-            ctx.drawImage(pass, this.x-20, this.y-40, this.width+40, this.height+50);
+            // ctx.drawImage(pass, this.x-20, this.y-40, this.width+40, this.height+50);
             ctx.fill();
             ctx.closePath()
         };
@@ -210,10 +217,10 @@
         this.y = y;
         this.speedX = 0;
         this.speedY = 0;
-        this.update = function (color) {
+        this.update = function () {
             ctx = myGameArea.context;
             ctx.beginPath();
-            ctx.fillStyle = color
+            ctx.fillStyle = "rgba(255, 255, 255, 0.0)"
             ctx.fillRect(this.x, this.y, this.width, this.height);
             ctx.fill();
             ctx.closePath()
@@ -236,7 +243,7 @@
             ctx.translate(-this.x-this.width/2, -this.y-this.height/2);
             ctx.drawImage(car, this.x-20, this.y-40, this.width+40, this.height+90);
             ctx.fillRect(this.x, this.y, this.width, this.height)
-            ctx.fillStyle = color;
+            ctx.fillStyle = "rgba(255, 255, 255, 0.0)";
             ctx.restore();
         }
 
@@ -254,16 +261,19 @@
             var otherright = otherobj.x + (otherobj.width);
             var othertop = otherobj.y;
             var otherbottom = otherobj.y + (otherobj.height);
+    
+            // var touch = function () {
+            if (myleft - 4 < otherright &&
+                myright + 4 > otherleft &&
+                mytop - 4 < otherbottom &&
+                mybottom + 4 > othertop) {
+                // console.log('true');
+                return true
+            }
 
-                if (myleft - 4 < otherright &&
-                    myright + 4 > otherleft &&
-                    mytop - 4 < otherbottom &&
-                    mybottom + 4 > othertop) {
-                    // console.log('true');
-                    return true
-                }
         }
     }
+
 
     function checkAllObsticals() {
         var res = []
@@ -281,39 +291,49 @@
         })
     }
 
+    function addBlood(passa) {
+        var blood = new component(passa.x, passa.y, "black", 310, 330)
+    }
+
     function checkAllPassangers() {
             if(myGamePiece.crashWith(passangersArray[0])) {
-                // add points function here
-                
-                //make the object disappear
-                var passengersIndex = passangersArray.indexOf(passangersArray[0])
-                passangersArray.splice(passengersIndex, 1)
-                addPoints()
-                addTime()
+                addBlood(passangersArray[0])
+
+                var PassengersIndex = passangersArray.indexOf(passangersArray[0])
+                passangersArray.splice(PassengersIndex, 1)
+                var newPassengersIndex = newPassangersArray.indexOf(newPassangersArray[0])
+                newPassangersArray.splice(newPassengersIndex, 1)
+                addPoints();
+                addTime(); 
             }
     }
 
+    // function checkAllNewPassangers() {
+    //     // debugger
+    //     if(myGamePiece.crashWith(newPassangersArray[0])) {
+    //         console.log('test');
+            
+    //         var newPassengersIndex = newPassangersArray.indexOf(newPassangersArray[0])
+    //         newPassangersArray.splice(newPassengersIndex, 1)
+    //         }
+    // }
 
-
-
-    function renderAllPassangers(color){
-        if (passangersArray[0]) {
-
-            passangersArray[0].update(color)
+    function updateAllNewPassangers(){
+        if (newPassangersArray[0]) {
+            console.log(newPassangersArray)
+            newPassangersArray[0].update()
         }
     }
 
     function updateGameArea() {
-
-        checkAllObsticals()
-        checkAllPassangers()
-        // debugger
         myGameArea.clear();
-
+        checkAllObsticals()
+        newPassangersArray[0].update()
+        newPassangersArray[0].render()
+        passangersArray[0].update()
+        checkAllPassangers()
         playerMove()
-        renderAllPassangers("white");
         renderAllObsticals("rgba(255, 255, 255, 0.0)")
-
         myGamePiece.drawImage(dir, "green");
     }
  
@@ -357,6 +377,9 @@
         if (keys[68] && checkAllObsticals() && myGamePiece.x < 1200 - myGamePiece.width - 2) {
             dir = 270
             myGamePiece.x += speed - slowD;
+        }
+        if(keys[80]){
+            addTime()
         }
 
         return false;
