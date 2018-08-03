@@ -74,33 +74,33 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // myObstacle29 = new component(80, 140, "green", 900, 0);
         // obstacles.push(myObstacle29)
         
-        passPswos = [[38,100],[100,170],[270,250],[590,550],[38,500],[38,100],[38,500],[530,600],[678,180],[38,500],[935,580],[1020,580],[38,500]]
-        pass1 = new passanger( 25,25, 'green', passPos[0][0],passPos[0][1])
-        passangersArray.push(pass1)
-        pass2 = new passanger( 25,25, 'green', passPos[1][0],passPos[1][1])
-        passangersArray.push(pass2)
-        pass3 = new passanger( 25, 25, 'green', passPos[2][0],passPos[2][1])
-        passangersArray.push(pass3)
-        pass4 = new passanger( 25, 25, 'green', passPos[3][0],passPos[3][1])
-        passangersArray.push(pass4)
-        pass5 = new passanger( 25, 25, 'green', passPos[4][0],passPos[4][1])
-        passangersArray.push(pass5)
-        pass6 = new passanger( 25, 25, 'green', passPos[5][0],passPos[5][1])
-        passangersArray.push(pass6)
-        pass7 = new passanger( 25, 25, 'green', passPos[6][0],passPos[6][1])
-        passangersArray.push(pass7)
-        pass8 = new passanger( 25, 25, 'green', passPos[7][0],passPos[7][1])
-        passangersArray.push(pass8)
-        pass9 = new passanger( 25, 25, 'green', passPos[8][0],passPos[8][1])
-        passangersArray.push(pass9)
-        pass10 = new passanger( 25, 25, 'green', passPos[9][0],passPos[9][1])
-        passangersArray.push(pass10)
-        pass11 = new passanger( 25, 25, 'green', passPos[10][0],passPos[10][1])
-        passangersArray.push(pass11)
-        pass12 = new passanger( 25, 25, 'green',passPos[11][0],passPos[11][1])
-        passangersArray.push(pass12)
-        pass13 = new passanger( 25, 25, 'green', passPos[12][0],passPos[12][1])
-        passangersArray.push(pass13)
+        passPos = [[38,100],[100,170],[270,250],[590,550],[38,500],[38,100],[38,500],[530,600],[678,180],[38,500],[935,580],[1020,580],[38,500]]
+        // pass1 = new passanger( 25,25, 'green', passPos[0][0],passPos[0][1])
+        // passangersArray.push(pass1)
+        // pass2 = new passanger( 25,25, 'green', passPos[1][0],passPos[1][1])
+        // passangersArray.push(pass2)
+        // pass3 = new passanger( 25, 25, 'green', passPos[2][0],passPos[2][1])
+        // passangersArray.push(pass3)
+        // pass4 = new passanger( 25, 25, 'green', passPos[3][0],passPos[3][1])
+        // passangersArray.push(pass4)
+        // pass5 = new passanger( 25, 25, 'green', passPos[4][0],passPos[4][1])
+        // passangersArray.push(pass5)
+        // pass6 = new passanger( 25, 25, 'green', passPos[5][0],passPos[5][1])
+        // passangersArray.push(pass6)
+        // pass7 = new passanger( 25, 25, 'green', passPos[6][0],passPos[6][1])
+        // passangersArray.push(pass7)
+        // pass8 = new passanger( 25, 25, 'green', passPos[7][0],passPos[7][1])
+        // passangersArray.push(pass8)
+        // pass9 = new passanger( 25, 25, 'green', passPos[8][0],passPos[8][1])
+        // passangersArray.push(pass9)
+        // pass10 = new passanger( 25, 25, 'green', passPos[9][0],passPos[9][1])
+        // passangersArray.push(pass10)
+        // pass11 = new passanger( 25, 25, 'green', passPos[10][0],passPos[10][1])
+        // passangersArray.push(pass11)
+        // pass12 = new passanger( 25, 25, 'green',passPos[11][0],passPos[11][1])
+        // passangersArray.push(pass12)
+        // pass13 = new passanger( 25, 25, 'green', passPos[12][0],passPos[12][1])
+        // passangersArray.push(pass13)
         // pass13 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass13)
         // pass14 = new passanger( 25, 25, 'green', 38, 500)
@@ -161,14 +161,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // passangersArray.push(pass41)
         // pass42 = new passanger( 25, 25, 'green', 38, 500)
         // passangersArray.push(pass42)
-        newPass1 = sprite({ x:430, y: 500, context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 2
+        newPass1 = sprite({ x:passPos[0][0],y:passPos[0][1], context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 2
         });
         newPassangersArray.push(newPass1)
-        newPass2 = sprite({x:100, y: 100, context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4
+        newPass2 = sprite({x:passPos[1][0],y:passPos[1][1], context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4
         });
 
         newPassangersArray.push(newPass2)
-        newPass3 = sprite({ x:900, y: 700,context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4
+        newPass3 = sprite({ x:passPos[2][0],y:passPos[2][1],context: canvas.getContext("2d"), width: 1000, height: 100, image: newPassImage, numberOfFrames: 10, ticksPerFrame: 4
         });
   
         newPassangersArray.push(newPass3)
@@ -216,7 +216,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
             that.image = options.image;
             that.x = options.x;
             that.y = options.y
-    
+            passangersArray.push(new passanger( 30,30, 'green', that.x, that.y))
+            // debugger
             that.update = function () {
     
                 tickCount += 1;
@@ -241,16 +242,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 that.context.clearRect(0, 0, that.width, that.height);
     
                 // Draw the animation
-                that.context.fillRect(that.x,that.y,100,100);
-                that.context.fillStyle = "#FF0000";
+                // that.context.fillRect(that.x,that.y,100,100);
+                // that.context.fillStyle = "#FF0000";
                 that.context.drawImage(
                     that.image,
                     frameIndex * that.width / numberOfFrames,
                     0,
                     that.width / numberOfFrames,
                     that.height,
-                    that.x,
-                    that.y,
+                    that.x - 30,
+                    that.y -50,
                     (that.width / numberOfFrames)/1,
                     that.height/1
                 );
@@ -271,9 +272,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         this.update = function (color) {
             ctx = myGameArea.context;
             ctx.beginPath();
-            ctx.fillStyle = color
+            ctx.fillStyle = "rgba(255, 255, 255, 0.0)"
             ctx.fillRect(this.x, this.y, this.width, this.height);
-            ctx.drawImage(pass, this.x-20, this.y-40, this.width+40, this.height+50);
+            // ctx.drawImage(pass, this.x-20, this.y-40, this.width+40, this.height+50);
             ctx.fill();
             ctx.closePath()
         };
@@ -381,6 +382,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 // var passengersIndex = passangersArray.indexOf(p)
                 // passangersArray.splice(passengersIndex, 1)
                 console.log('hello');
+                var PassengersIndex = passangersArray.indexOf(passangersArray[0])
+                passangersArray.splice(PassengersIndex, 1)
+                var newPassengersIndex = newPassangersArray.indexOf(newPassangersArray[0])
+                newPassangersArray.splice(newPassengersIndex, 1)
                 
             }
 
@@ -420,11 +425,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function updateGameArea() {
         myGameArea.clear();
         checkAllObsticals()
-        // checkAllPassangers()
-        newPassangersArray[0].render()
         newPassangersArray[0].update()
-        checkAllNewPassangers()
-
+        newPassangersArray[0].render()
+        passangersArray[0].update()
+        // debugger
+        // checkAllNewPassangers()
+        checkAllPassangers()
+        // debugger
         playerMove()
         // updateAllNewPassangers()
         // renderAllNewPassangers();
