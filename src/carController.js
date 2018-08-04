@@ -105,28 +105,6 @@ class Robot {
         }
     }
 
-    // translateInstructions(instruction) {
-    //     let instructions = instruction.split("")
-    //     for (let i = 0; i < instructions.length; i++) {
-    //         switch (instructions[i]) {
-    //             case 'L':
-    //                 this.turnLeft()
-    //                 break;
-    //             case 'R':
-    //                 this.turnRight()
-    //                 break;
-    //             case 'A':
-    //                 this.advance()
-    //                 break;
-    //             default:
-    //                 "I don't know"
-    //         }
-    //     }
-    // }
-    
-
-
-
 }
 
 
