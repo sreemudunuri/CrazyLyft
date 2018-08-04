@@ -245,7 +245,7 @@ function bloodComponent(width, height, x, y) {
         // ctx.translate(this.x+this.width/2, this.y+this.height/2);
         // ctx.rotate(deg*Math.PI/180.0);
         // ctx.translate(-this.x-this.width/2, -this.y-this.height/2);
-        ctx.drawImage(bloodImg, 0, 0, this.width, this.height, this.x, this.y, this.width, this.height);
+        ctx.drawImage(bloodImg, 0, 0, this.width*5, this.height*5, this.x-10, this.y-10, this.width*5, this.height*5);
         // ctx.fillRect(this.x, this.y, this.width, this.height)
         // ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
         ctx.restore();
