@@ -1,19 +1,86 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
     <head>
-        <link rel="stylesheet" href="index.css">
-        <script type="text/javascript" src="run.js"></script>
-        <script type="text/javascript" src="map.js"></script>
-        <script type="text/javascript" src="car.js"></script>
-        <script type="text/javascript" src="passenger.js"></script>
+        <meta charset="utf-8" />
+        <title>Zombie Lyft!!</title>
+        
+        
+        <head>
+            <link rel="stylesheet" href="index.css">
+            <script src="adapter.js"></script>
+            <script type="text/javascript" src="map.js"></script>
+            <script type="text/javascript" src="car.js"></script>
+            <script type="text/javascript" src="passenger.js"></script>
+            
+        </head>
+        
     </head>
+    <body>
+        
+        <nav class="navbar navbar-light" style="background-color: #ffc107;">
+            <span class="navbar-brand mb-0 h1">ZOMBIE LYFT</span>
+            <span class="navbar-text">
+                <button id = "highscore-button" class="btn btn-success" type="submit">See High Scores!</button>
+            </span>
+        </nav>
+      
+        <br>
+        <div id = "sidebar">
+            <div id = 'username-box'> 
 
-</head>
-<body>
+                <form id = "username-form">
+                    <div class = "form-group">
+                        <label for="name"><h2>User Name:</h2></label><br>
+                        <input type="text" name = "name" placeholder = "Enter Your Name!" required><br>
+                    </div>
+                    <input type="submit" value = "DRIVE!">
+                </form>
+                <br>
 
-<canvas id="myCanvas" width="1200" height="800"></canvas>
+            </div>
+            
+            <div class="card bg-warning text-dark">
+                <div class="card-body" id = 'timer-card'>
+                    <h2 class="card-title">Timer</h2>
+                    <h3 id = "timer"><strong> 10 </strong> </h3>
+                </div>
+            </div>
+            <br>
+            
+            <div class="card bg-success text-white">
+                <div class="card-body" id = 'score-card'>
+                    <h2 class="card-title">Score</h2>
+                    <h3 id = 'score'>
+                        <em> 0 </em>
+                    </h3>
+                </div>
+            </div>
+            <hr>
+
+            <div class="card text-white bg-dark mb-3">
+                <div class="card-body">
+                    <h5>
+                       <strong>
+                            Use the 'WASD' keys to drive your car! Run over all the zombies before time runs out!
+                       </strong>   
+                    </h5>
+                </div>
+            </div>
+
+      
+        </div>
+       
+        <div id = "canvas-div">
+            <canvas id="myCanvas" width="1200" height="800"></canvas>
+        </div>
+        
+        
+    
+    <script type="text/javascript" src="user.js"></script>
+    <script type="text/javascript" src="leaderboard.js"></script>
+    <script type="text/javascript" src="timer.js"></script>
+    <script type="text/javascript" src="run.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 
 </body>
 </html>
