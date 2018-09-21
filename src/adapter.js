@@ -1,10 +1,10 @@
 console.log('adapter is linked')
 
-let userAPI = 'http://localhost:3000/api/v1/users'
+let userAPI = 'https://powerful-atoll-73631.herokuapp.com/api/v1/users'
 
 let userAdapter = generateAdapter(userAPI)
 
-let pointPostURL = 'http://localhost:3000/api/v1/scores'
+let pointPostURL = 'https://powerful-atoll-73631.herokuapp.com/api/v1/scores'
 
 function generateAdapter(apiURL){
     return {
