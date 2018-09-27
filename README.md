@@ -1,6 +1,6 @@
 # The Driving Dead
 
-* [Live](https://the-driving-dead.surge.sh/) 
+* [Live](https://the-driving-dead.surge.sh/) ([p2p version](dat://the-driving-dead.hashbase.io/)) 
 * [Video](https://www.youtube.com/watch?v=dBvCOW5FHKU&t=76s)
 
 
